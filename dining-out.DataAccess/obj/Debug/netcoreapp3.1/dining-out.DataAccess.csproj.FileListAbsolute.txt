@@ -1,0 +1,14 @@
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.DataAccess/bin/Debug/netcoreapp3.1/dining-out.DataAccess.deps.json
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.DataAccess/bin/Debug/netcoreapp3.1/dining-out.DataAccess.dll
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.DataAccess/bin/Debug/netcoreapp3.1/dining-out.DataAccess.pdb
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.DataAccess/bin/Debug/netcoreapp3.1/dining-out.Models.dll
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.DataAccess/bin/Debug/netcoreapp3.1/dining-out.Utility.dll
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.DataAccess/bin/Debug/netcoreapp3.1/dining-out.Models.pdb
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.DataAccess/bin/Debug/netcoreapp3.1/dining-out.Utility.pdb
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.DataAccess/obj/Debug/netcoreapp3.1/dining-out.DataAccess.csprojAssemblyReference.cache
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.DataAccess/obj/Debug/netcoreapp3.1/dining-out.DataAccess.AssemblyInfoInputs.cache
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.DataAccess/obj/Debug/netcoreapp3.1/dining-out.DataAccess.AssemblyInfo.cs
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.DataAccess/obj/Debug/netcoreapp3.1/dining-out.DataAccess.csproj.CoreCompileInputs.cache
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.DataAccess/obj/Debug/netcoreapp3.1/dining-out.DataAccess.csproj.CopyComplete
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.DataAccess/obj/Debug/netcoreapp3.1/dining-out.DataAccess.dll
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.DataAccess/obj/Debug/netcoreapp3.1/dining-out.DataAccess.pdb

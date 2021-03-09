@@ -1,0 +1,26 @@
+﻿<Properties StartupConfiguration="{0252D707-0A96-4566-B9A9-6E538BE5BD24}|Default">
+  <MonoDevelop.Ide.ItemProperties.dining-out.DataAccess FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.dining-out.Models FirstBuild="True" />
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="dining-out" expanded="True">
+            <Node name="dining-out.DataAccess" expanded="True" />
+            <Node name="dining-out.Models" expanded="True" />
+            <Node name="dining-out.Utility" expanded="True" />
+            <Node name="dining-out.WebUI" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.dining-out.Utility FirstBuild="True" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.dining-out.WebUI PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
