@@ -30,7 +30,21 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark text-primary" asp-area="" asp-controller="Anasayfa" asp-action="Index">Anasayfa</a>
-                        </li>                   
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark text-primary" asp-route-kullaniciTipi="CUSTOMER" asp-controller="UyeOl" asp-action="Index">Müşteri Olarak Üye Ol</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark text-primary" asp-route-kullaniciTipi="RESTAURANT" asp-controller="UyeOl" asp-action="Index">Restaurant Olarak Üye Ol</a>
+                        </li>
                     </ul>
                 </div>
             </div>

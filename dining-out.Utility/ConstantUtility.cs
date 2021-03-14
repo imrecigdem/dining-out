@@ -7,5 +7,10 @@ namespace dining_out.Utility
         {
             NEW,APPROVED,CANCELLED,CLOSED
         }
+
+        public enum UserType
+        {
+            CUSTOMER, RESTAURANT
+        }
     }
 }

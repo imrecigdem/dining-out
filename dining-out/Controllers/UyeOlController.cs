@@ -21,7 +21,7 @@ namespace dining_out.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index(int restaurantId)
+        public IActionResult Index(string kullaniciTipi)
         {
             return View("Index");
         }

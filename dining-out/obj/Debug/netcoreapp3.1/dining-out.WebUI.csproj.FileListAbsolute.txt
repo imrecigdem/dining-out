@@ -74,3 +74,4 @@
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/bin/Debug/netcoreapp3.1/MySql.EntityFrameworkCore.dll
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/obj/Debug/netcoreapp3.1/Razor/Views/DashboardRestaurant/Index.cshtml.g.cs
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/obj/Debug/netcoreapp3.1/Razor/Views/MasaRezervasyon/Index.cshtml.g.cs
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/obj/Debug/netcoreapp3.1/Razor/Views/UyeOl/Index.cshtml.g.cs
