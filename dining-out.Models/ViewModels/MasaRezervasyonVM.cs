@@ -3,8 +3,9 @@ namespace dining_out.Models.ViewModels
 {
     public class MasaRezervasyonVM
     {
-        public MasaRezervasyonVM()
+        public MasaRezervasyonVM(int restaurantId)
         {
+            this.RestaurantId = restaurantId;
         }
 
         public int RestaurantId { get; set; }

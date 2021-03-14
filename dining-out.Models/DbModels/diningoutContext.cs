@@ -17,6 +17,8 @@ namespace dining_out.Models.DbModels
         {
         }
 
+        public virtual DbSet<BookTableAttendee> BookTableAttendees { get; set; }
+        public virtual DbSet<BookTableRezervation> BookTableRezervations { get; set; }
         public virtual DbSet<Restaurant> Restaurants { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
@@ -30,6 +32,84 @@ namespace dining_out.Models.DbModels
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<BookTableAttendee>(entity =>
+            {
+                entity.ToTable("BookTableAttendee");
+
+                entity.HasIndex(e => e.BooktableRezervationId, "BookTableAttendee_BookTableRezervation_id_fk");
+
+                entity.HasIndex(e => e.UserId, "BookTableAttendee_User_id_fk");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.BooktableRezervationId).HasColumnName("booktable_rezervation_id");
+
+                entity.Property(e => e.UserId).HasColumnName("user_id");
+
+                entity.HasOne(d => d.BooktableRezervation)
+                    .WithMany(p => p.BookTableAttendees)
+                    .HasForeignKey(d => d.BooktableRezervationId)
+                    .HasConstraintName("BookTableAttendee_BookTableRezervation_id_fk");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.BookTableAttendees)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("BookTableAttendee_User_id_fk");
+            });
+
+            modelBuilder.Entity<BookTableRezervation>(entity =>
+            {
+                entity.ToTable("BookTableRezervation");
+
+                entity.HasIndex(e => e.RestaurantId, "BookTableRezervation_Restaurant_id_fk");
+
+                entity.HasIndex(e => e.RezervationUserId, "BookTableRezervation_User_id_fk");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.AttendeeNumber).HasColumnName("attendee_number");
+
+                entity.Property(e => e.Description)
+                    .HasMaxLength(1000)
+                    .HasColumnName("description");
+
+                entity.Property(e => e.Email)
+                    .HasMaxLength(200)
+                    .HasColumnName("email");
+
+                entity.Property(e => e.NameLastname)
+                    .HasMaxLength(200)
+                    .HasColumnName("name_lastname");
+
+                entity.Property(e => e.PhoneNumber)
+                    .HasMaxLength(200)
+                    .HasColumnName("phone_number");
+
+                entity.Property(e => e.RestaurantId).HasColumnName("restaurant_id");
+
+                entity.Property(e => e.RezervationDate)
+                    .HasColumnType("date")
+                    .HasColumnName("rezervation_date");
+
+                entity.Property(e => e.RezervationStatus)
+                    .HasMaxLength(100)
+                    .HasColumnName("rezervation_status");
+
+                entity.Property(e => e.RezervationTime).HasColumnName("rezervation_time");
+
+                entity.Property(e => e.RezervationUserId).HasColumnName("rezervation_user_id");
+
+                entity.HasOne(d => d.Restaurant)
+                    .WithMany(p => p.BookTableRezervations)
+                    .HasForeignKey(d => d.RestaurantId)
+                    .HasConstraintName("BookTableRezervation_Restaurant_id_fk");
+
+                entity.HasOne(d => d.RezervationUser)
+                    .WithMany(p => p.BookTableRezervations)
+                    .HasForeignKey(d => d.RezervationUserId)
+                    .HasConstraintName("BookTableRezervation_User_id_fk");
+            });
+
             modelBuilder.Entity<Restaurant>(entity =>
             {
                 entity.ToTable("Restaurant");

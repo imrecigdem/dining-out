@@ -9,6 +9,8 @@ namespace dining_out.Models.DbModels
     {
         public User()
         {
+            BookTableAttendees = new HashSet<BookTableAttendee>();
+            BookTableRezervations = new HashSet<BookTableRezervation>();
             Restaurants = new HashSet<Restaurant>();
         }
 
@@ -19,6 +21,8 @@ namespace dining_out.Models.DbModels
         public string Surname { get; set; }
         public string UserType { get; set; }
 
+        public virtual ICollection<BookTableAttendee> BookTableAttendees { get; set; }
+        public virtual ICollection<BookTableRezervation> BookTableRezervations { get; set; }
         public virtual ICollection<Restaurant> Restaurants { get; set; }
     }
 }

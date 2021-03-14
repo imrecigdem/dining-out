@@ -7,6 +7,11 @@ namespace dining_out.Models.DbModels
 {
     public partial class Restaurant
     {
+        public Restaurant()
+        {
+            BookTableRezervations = new HashSet<BookTableRezervation>();
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
         public int? UserId { get; set; }
@@ -22,5 +27,6 @@ namespace dining_out.Models.DbModels
         public string CoverImg { get; set; }
 
         public virtual User User { get; set; }
+        public virtual ICollection<BookTableRezervation> BookTableRezervations { get; set; }
     }
 }

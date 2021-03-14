@@ -26,7 +26,7 @@ namespace dining_out.Controllers
             diningoutContext _context = new diningoutContext();
             RestaurantDetayı(restaurantId);
             ViewBag.KisilerData = StaticDataManagerUtility.kisiSayisiListesi();
-            return View("Index", new MasaRezervasyonVM());
+            return View("Index", new MasaRezervasyonVM(restaurantId));
         }
 
         [HttpPost]
@@ -37,7 +37,7 @@ namespace dining_out.Controllers
             RestaurantDetayı(restaurantId);
             ViewBag.KisilerData = StaticDataManagerUtility.kisiSayisiListesi();
             ViewBag.Basarili = true;
-            return View("Index", new MasaRezervasyonVM());
+            return View("Index", new MasaRezervasyonVM(restaurantId));
         }
 
         public void RestaurantDetayı(int restaurantId)
