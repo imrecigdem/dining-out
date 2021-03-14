@@ -26,7 +26,7 @@ namespace dining_out.Models.DbModels
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySQL("server=127.0.0.1;port=3306;uid=root;pwd=password;database=dining-out");
+                 optionsBuilder.UseMySQL("server=127.0.0.1;port=3306;uid=root;pwd=password;database=dining-out");
             }
         }
 
@@ -86,6 +86,10 @@ namespace dining_out.Models.DbModels
                     .HasColumnName("phone_number");
 
                 entity.Property(e => e.RestaurantId).HasColumnName("restaurant_id");
+
+                entity.Property(e => e.RezervationCreatedDatetime)
+                    .HasColumnType("date")
+                    .HasColumnName("rezervation_created_datetime");
 
                 entity.Property(e => e.RezervationDate)
                     .HasColumnType("date")

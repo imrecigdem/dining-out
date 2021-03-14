@@ -26,6 +26,7 @@ namespace dining_out.Controllers
             sehirleriDoldur();
             kisiSayisiDoldur();
             istanbulIlceleriDoldur();
+            //Varsayılan olarak Istanbul,Kadıköy ve 2 kişilik arama parametreleri seçili olarak geliyor.
             RestaurantSearchVM sample = new RestaurantSearchVM();
             sample.BookTableDate = DateTime.Now;
             sample.Capacity = 2;
@@ -59,6 +60,10 @@ namespace dining_out.Controllers
             List<Restaurant> restaurantsList = restaurantsQuery.ToList<Restaurant>();
             foreach(Restaurant restaurant in restaurantsList)
             {
+                if (tarihUygunluguYokSa(restaurant,restaurantSearchVM, _context))
+                {
+                    continue;
+                }
                 RestaurantVM restaurantVM = new RestaurantVM();
                 restaurantVM.Id = restaurant.Id;
                 restaurantVM.Address = restaurant.Address;
@@ -89,6 +94,29 @@ namespace dining_out.Controllers
 
             ViewBag.Restaurants = restaurants;
 
+        }
+
+        private bool tarihUygunluguYokSa(Restaurant restaurant, RestaurantSearchVM restaurantSearchVM, diningoutContext _context)
+        {
+            TimeSpan restaurantSearchTime = restaurantSearchVM.BookTableDate.TimeOfDay;
+            TimeSpan restaurantSearchTime2HoursLater = restaurantSearchTime + TimeSpan.FromHours(2);
+            TimeSpan restaurantSearchTime2HoursEarlier = restaurantSearchTime - TimeSpan.FromHours(2);
+
+            int? sumAttendees = _context.BookTableRezervations
+                .Where(book=>book.RezervationStatus.Equals(ConstantUtility.RezervationStatus.APPROVED.ToString()))
+                .Where(book => book.RestaurantId.Equals(restaurant.Id))
+                .Where(book => DateTime.Compare(book.RezervationDate, restaurantSearchVM.BookTableDate.Date) == 0)
+                .Where(book => TimeSpan.Compare(book.RezervationTime, restaurantSearchTime2HoursEarlier) == 1)
+                .Where(book => TimeSpan.Compare(restaurantSearchTime2HoursLater, book.RezervationTime) == 1)
+                .Sum(book => book.AttendeeNumber);
+
+            Console.WriteLine(sumAttendees);
+
+            if (restaurantSearchVM.Capacity<=(restaurant.Capacity- sumAttendees))
+            {
+                return false;
+            }
+            return true;                   
         }
 
         public void kisiSayisiDoldur()

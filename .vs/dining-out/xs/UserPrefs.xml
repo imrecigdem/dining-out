@@ -1,24 +1,19 @@
 ﻿<Properties StartupConfiguration="{0252D707-0A96-4566-B9A9-6E538BE5BD24}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="dining-out/Views/MasaRezervasyon/Index.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="dining-out/Controllers/AnasayfaController.cs">
     <Files>
-      <File FileName="dining-out/Views/MasaRezervasyon/Index.cshtml" Line="48" Column="20" />
-      <File FileName="dining-out/Controllers/MasaRezervasyonController.cs" Line="50" Column="23" />
+      <File FileName="dining-out.Models/DbModels/BookTableRezervation.cs" Line="22" Column="25" />
+      <File FileName="dining-out/Controllers/AnasayfaController.cs" Line="106" Column="21" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="dining-out" expanded="True">
             <Node name="dining-out.Models" expanded="True">
-              <Node name="Dependencies" expanded="True" />
+              <Node name="DbModels" expanded="True" />
             </Node>
-            <Node name="dining-out.Utility" expanded="True" />
             <Node name="dining-out.WebUI" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="Views" expanded="True">
-                <Node name="Anasayfa" expanded="True" />
-                <Node name="MasaRezervasyon" expanded="True">
-                  <Node name="Index.cshtml" selected="True" />
-                </Node>
+              <Node name="Controllers" expanded="True">
+                <Node name="AnasayfaController.cs" selected="True" />
               </Node>
             </Node>
           </Node>

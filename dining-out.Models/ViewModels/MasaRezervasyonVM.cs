@@ -8,6 +8,10 @@ namespace dining_out.Models.ViewModels
             this.RestaurantId = restaurantId;
         }
 
+        public MasaRezervasyonVM()
+        {
+        }
+
         public int RestaurantId { get; set; }
         public int KisiSayisi { get; set; }
         public string IsimSoyisim { get; set; }

@@ -35,6 +35,27 @@ namespace dining_out.Controllers
         {
             diningoutContext _context = new diningoutContext();
             RestaurantDetayı(restaurantId);
+            BookTableRezervation rezervation = new BookTableRezervation();
+            rezervation.Description = masaRezervasyonVM.Aciklama;
+            rezervation.AttendeeNumber = masaRezervasyonVM.KisiSayisi;
+            rezervation.Email = masaRezervasyonVM.Email;
+            rezervation.NameLastname = masaRezervasyonVM.IsimSoyisim;
+            rezervation.PhoneNumber = masaRezervasyonVM.Telefon;
+            rezervation.RestaurantId = restaurantId;
+            rezervation.RezervationDate = masaRezervasyonVM.Tarih.Date;
+            rezervation.RezervationTime = masaRezervasyonVM.TarihSaat.TimeOfDay;
+            rezervation.RezervationCreatedDatetime = DateTime.Now;
+            rezervation.RezervationUserId = 1;
+            rezervation.RezervationStatus = ConstantUtility.RezervationStatus.NEW.ToString();
+            _context.BookTableRezervations.Add(rezervation);
+            _context.SaveChanges();
+
+            BookTableAttendee attendee = new BookTableAttendee();
+            attendee.BooktableRezervationId = rezervation.Id;
+            attendee.UserId = rezervation.RezervationUserId;
+            _context.BookTableAttendees.Add(attendee);
+            _context.SaveChanges();
+
             ViewBag.KisilerData = StaticDataManagerUtility.kisiSayisiListesi();
             ViewBag.Basarili = true;
             return View("Index", new MasaRezervasyonVM(restaurantId));
