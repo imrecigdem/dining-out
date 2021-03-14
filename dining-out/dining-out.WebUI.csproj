@@ -8,9 +8,8 @@
 
   <ItemGroup>
     <Folder Include="Services\" />
-    <Folder Include="Views\Dashboard\" />
-    <Folder Include="Views\Dashboard\Restaurant\" />
-    <Folder Include="Views\Dashboard\User\" />
+    <Folder Include="Views\DashboardRestaurant\" />
+    <Folder Include="Views\MasaRezervasyon\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dining-out.Models\dining-out.Models.csproj">

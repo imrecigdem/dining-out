@@ -25,11 +25,7 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {
-              "/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.Utility/dining-out.Utility.csproj": {
-                "projectPath": "/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.Utility/dining-out.Utility.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -99,7 +95,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.Models/dining-out.Models.csproj": {
+                "projectPath": "/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.Models/dining-out.Models.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

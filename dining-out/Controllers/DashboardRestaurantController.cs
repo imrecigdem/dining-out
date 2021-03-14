@@ -10,11 +10,11 @@ using dining_out.Models.DbModels;
 
 namespace dining_out.Controllers
 {
-    public class RestaurantController : Controller
+    public class DashboardRestaurantController : Controller
     {
-        private readonly ILogger<RestaurantController> _logger;
+        private readonly ILogger<DashboardRestaurantController> _logger;
 
-        public RestaurantController(ILogger<RestaurantController> logger)
+        public DashboardRestaurantController(ILogger<DashboardRestaurantController> logger)
         {
             _logger = logger;
         }

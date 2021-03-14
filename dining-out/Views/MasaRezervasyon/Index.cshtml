@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Masa Rezervasyon ";
+}
+
+<br />
+<div>
+
+    <!-- Table Reservation Form -->
+    <section id="book-a-table" class="book-a-table">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="col-md-8 offset-md-2 text-center">
+                    <h2 class="text-primary">Masa Rezervasyonu</h2>
+                    <h3 class="text-primary">@ViewBag.Restaurant.Name</h3>
+                    <p class="mb-5">@ViewBag.Restaurant.Desc</p>
+                </div>
+            </div>
+            <form asp-action="RezervasyonYap" asp-controller="MasaRezervasyon" asp-route-restaurantId="@ViewBag.Restaurant.Id" method="post">
+                <div class="form-row">
+                    <div class="col-lg-4 col-md-6 form-group">
+                        <input type="text" name="IsimSoyisim" class="form-control" id="IsimSoyisim" placeholder="İsminiz">
+                    </div>
+                    <div class="col-lg-4 col-md-6 form-group">
+                        <input type="email" class="form-control" name="Email" id="Email" placeholder="E-Mail Adresi">
+                    </div>
+                    <div class="col-lg-4 col-md-6 form-group">
+                        <input type="number" class="form-control" name="Telefon" id="Telefon" placeholder="Telefon Numarası">
+                    </div>
+                    <div class="col-lg-4 col-md-6 form-group">
+                        <input type="date" name="Tarih" class="form-control" id="Tarih" placeholder="Tarih">
+                    </div>
+                    <div class="col-lg-4 col-md-6 form-group">
+                        <input type="time" class="form-control" name="TarihSaat" id="TarihSaat" placeholder="TarihSaat">
+                    </div>
+                    <div class="col-lg-4 col-md-6 form-group">
+                        <select class="form-control" name="KisiSayisi" id="KisiSayisi">
+                            @foreach (var kisiData in ViewBag.KisilerData)
+                            {
+                                <option value="@kisiData.Key">@kisiData.Value</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="Aciklama" placeholder="Aciklama"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary float-right mt-3">Rezervasyon Yap</button>
+            </form>
+            <div class="row">
+                @if (ViewBag.Basarili != null && ViewBag.Basarili == true)
+                {
+                <div class="alert alert-success" role="alert">
+                    Rezervasyonuz alınmıştır. En kısa sürede rezervasyon onayınız iletilecektir.
+                    Restauranta gitmeden menü seçimlerinizi yapabilirsiniz.
+                </div>
+                }
+                else if(ViewBag.Basarili != null && ViewBag.Basarili == false)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        Bir hata ile karşılaşıldı daha sonra tekrar deneyiniz.!!!
+                    </div>
+                }
+            </div>
+        </div>
+      </section>
+    <!-- End Table Reservation Form -->
+
+</div>

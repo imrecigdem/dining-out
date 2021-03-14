@@ -5,4 +5,7 @@
     <RootNamespace>dining_out.Utility</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\dining-out.Models\dining-out.Models.csproj" />
+  </ItemGroup>
 </Project>

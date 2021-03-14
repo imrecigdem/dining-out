@@ -6,9 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\dining-out.Utility\dining-out.Utility.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>

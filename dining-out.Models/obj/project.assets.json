@@ -532,16 +532,6 @@
             "rid": "win"
           }
         }
-      },
-      "dining-out.Utility/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "compile": {
-          "bin/placeholder/dining-out.Utility.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/dining-out.Utility.dll": {}
-        }
       }
     }
   },
@@ -1664,19 +1654,13 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
-    },
-    "dining-out.Utility/1.0.0": {
-      "type": "project",
-      "path": "../dining-out.Utility/dining-out.Utility.csproj",
-      "msbuildProject": "../dining-out.Utility/dining-out.Utility.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.EntityFrameworkCore.Design >= 5.0.4",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.4",
-      "MySql.EntityFrameworkCore >= 5.0.0",
-      "dining-out.Utility >= 1.0.0"
+      "MySql.EntityFrameworkCore >= 5.0.0"
     ]
   },
   "packageFolders": {
@@ -1703,11 +1687,7 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {
-            "/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.Utility/dining-out.Utility.csproj": {
-              "projectPath": "/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.Utility/dining-out.Utility.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

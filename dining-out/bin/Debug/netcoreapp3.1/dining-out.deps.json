@@ -777,8 +777,7 @@
       },
       "dining-out.Models/1.0.0": {
         "dependencies": {
-          "MySql.EntityFrameworkCore": "5.0.0",
-          "dining-out.Utility": "1.0.0"
+          "MySql.EntityFrameworkCore": "5.0.0"
         },
         "runtime": {
           "dining-out.Models.dll": {}
@@ -788,6 +787,9 @@
         }
       },
       "dining-out.Utility/1.0.0": {
+        "dependencies": {
+          "dining-out.Models": "1.0.0"
+        },
         "runtime": {
           "dining-out.Utility.dll": {}
         },

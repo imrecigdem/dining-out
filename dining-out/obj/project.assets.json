@@ -557,8 +557,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "MySql.EntityFrameworkCore": "5.0.0",
-          "dining-out.Utility": "1.0.0"
+          "MySql.EntityFrameworkCore": "5.0.0"
         },
         "compile": {
           "bin/placeholder/dining-out.Models.dll": {}
@@ -570,6 +569,9 @@
       "dining-out.Utility/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "dining-out.Models": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/dining-out.Utility.dll": {}
         },

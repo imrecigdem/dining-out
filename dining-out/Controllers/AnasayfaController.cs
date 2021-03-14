@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using dining_out.Models.ViewModels;
 using dining_out.Models.DbModels;
+using dining_out.Utility;
 
 namespace dining_out.Controllers
 {
@@ -68,9 +69,16 @@ namespace dining_out.Controllers
                 restaurantVM.DistrictId = restaurant.DistrictId;
                 restaurantVM.Logo = restaurant.Logo;
                 restaurantVM.Name = restaurant.Name;
-                restaurantVM.Desc = restaurant.Desc.Substring(0,100);
                 restaurantVM.CoverImg = restaurant.CoverImg;
                 restaurantVM.SystemDefinitionName = restaurant.SystemDefinitionName;
+                if (restaurant.Desc != null && restaurant.Desc.Length > 100)
+                {
+                    restaurantVM.Desc = restaurant.Desc.Substring(0, 100);
+                }
+                else
+                {
+                    restaurantVM.Desc = restaurant.Desc;
+                }
                 restaurants.Add(restaurantVM);
                 restaurants.Add(restaurantVM);
                 restaurants.Add(restaurantVM);
@@ -85,12 +93,7 @@ namespace dining_out.Controllers
 
         public void kisiSayisiDoldur()
         {
-            List<KeyValueVM> kisiler = new List<KeyValueVM>();
-            for(int i = 1; i <= 20; ++i)
-            {
-                kisiler.Add(new KeyValueVM(i.ToString(), i.ToString()));
-            }
-            ViewBag.KisilerData = kisiler;
+            ViewBag.KisilerData = StaticDataManagerUtility.kisiSayisiListesi();
         }
 
         public void sehirleriDoldur()
