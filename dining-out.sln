@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.809.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dining-out.WebUI", "dining-out\dining-out.WebUI.csproj", "{0252D707-0A96-4566-B9A9-6E538BE5BD24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dining-out.DataAccess", "dining-out.DataAccess\dining-out.DataAccess.csproj", "{C6DECCF9-3992-4C5A-9EBC-412E274E678F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dining-out.Models", "dining-out.Models\dining-out.Models.csproj", "{539960CE-A4A9-498B-9BDA-EFE717CF1665}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dining-out.Utility", "dining-out.Utility\dining-out.Utility.csproj", "{40586A96-7867-41AE-A098-DA82711E40AE}"
@@ -21,10 +19,6 @@ Global
 		{0252D707-0A96-4566-B9A9-6E538BE5BD24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0252D707-0A96-4566-B9A9-6E538BE5BD24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0252D707-0A96-4566-B9A9-6E538BE5BD24}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C6DECCF9-3992-4C5A-9EBC-412E274E678F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C6DECCF9-3992-4C5A-9EBC-412E274E678F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C6DECCF9-3992-4C5A-9EBC-412E274E678F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C6DECCF9-3992-4C5A-9EBC-412E274E678F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{539960CE-A4A9-498B-9BDA-EFE717CF1665}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{539960CE-A4A9-498B-9BDA-EFE717CF1665}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{539960CE-A4A9-498B-9BDA-EFE717CF1665}.Release|Any CPU.ActiveCfg = Release|Any CPU

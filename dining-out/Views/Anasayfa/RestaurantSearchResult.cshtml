@@ -1,0 +1,29 @@
+﻿<style type="text/css">
+    .card {
+        margin-bottom: 20px;
+    }
+</style>
+
+<div>
+    <div class="row">
+        @foreach (var restaurant in ViewBag.Restaurants)
+        {
+            <div class="col-sm-4">
+                <div class="card">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@restaurant.Name</h5>
+                        <p class="card-text">@restaurant.Desc</p>
+                        <a href="#" class="btn btn-primary">Rezervasyon Yap</a>
+                    </div>
+                    <div class="card-footer text-right">
+                        <small class="text-muted">Son rezervasyon 3 dakika önce</small>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <br />
+    <br />
+    <br />
+</div>

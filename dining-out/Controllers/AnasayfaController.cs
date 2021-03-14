@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using dining_out.Models.ViewModels;
+using dining_out.Models.DbModels;
 
 namespace dining_out.Controllers
 {
@@ -18,9 +19,112 @@ namespace dining_out.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            sehirleriDoldur();
+            kisiSayisiDoldur();
+            istanbulIlceleriDoldur();
+            RestaurantSearchVM sample = new RestaurantSearchVM();
+            sample.BookTableDate = DateTime.Now;
+            sample.Capacity = 2;
+            sample.CityId = "34";
+            sample.DistrictId = "1";
+            return View("Index", sample);
+        }
+
+        [HttpGet]
+        public IActionResult RestaurantSearch(RestaurantSearchVM restaurantSearchVM)
+        {
+            sehirleriDoldur();
+            kisiSayisiDoldur();
+            istanbulIlceleriDoldur();
+            restaurantAra(restaurantSearchVM);
+            return View("Restaurant", restaurantSearchVM);
+        }
+
+        private void restaurantAra(RestaurantSearchVM restaurantSearchVM)
+        {
+            diningoutContext _context = new diningoutContext();
+            List<RestaurantVM> restaurants = new List<RestaurantVM>();
+            IQueryable<Restaurant> restaurantsQuery = _context.Restaurants
+                                .Where(res => res.DistrictId.Equals(Int32.Parse(restaurantSearchVM.DistrictId.ToString())))
+                                .Where(res => res.CityId.Equals(Int32.Parse(restaurantSearchVM.CityId.ToString())));
+            if (restaurantSearchVM.Name != null)
+            {
+                restaurantsQuery=restaurantsQuery.Where(res => res.Name.Contains(restaurantSearchVM.Name) || res.SystemDefinitionName.Contains(restaurantSearchVM.Name));
+            }
+
+            List<Restaurant> restaurantsList = restaurantsQuery.ToList<Restaurant>();
+            foreach(Restaurant restaurant in restaurantsList)
+            {
+                RestaurantVM restaurantVM = new RestaurantVM();
+                restaurantVM.Id = restaurant.Id;
+                restaurantVM.Address = restaurant.Address;
+                restaurantVM.Capacity = restaurant.Capacity;
+                restaurantVM.City = restaurant.City;
+                restaurantVM.CityId = restaurant.CityId;
+                restaurantVM.District = restaurant.District;
+                restaurantVM.DistrictId = restaurant.DistrictId;
+                restaurantVM.Logo = restaurant.Logo;
+                restaurantVM.Name = restaurant.Name;
+                restaurantVM.Desc = restaurant.Desc.Substring(0,100);
+                restaurantVM.CoverImg = restaurant.CoverImg;
+                restaurantVM.SystemDefinitionName = restaurant.SystemDefinitionName;
+                restaurants.Add(restaurantVM);
+                restaurants.Add(restaurantVM);
+                restaurants.Add(restaurantVM);
+                restaurants.Add(restaurantVM);
+                restaurants.Add(restaurantVM);
+                restaurants.Add(restaurantVM);
+            }
+
+            ViewBag.Restaurants = restaurants;
+
+        }
+
+        public void kisiSayisiDoldur()
+        {
+            List<KeyValueVM> kisiler = new List<KeyValueVM>();
+            for(int i = 1; i <= 20; ++i)
+            {
+                kisiler.Add(new KeyValueVM(i.ToString(), i.ToString()));
+            }
+            ViewBag.KisilerData = kisiler;
+        }
+
+        public void sehirleriDoldur()
+        {
+            List<KeyValueVM> cities = new List<KeyValueVM>();
+            cities.Add(new KeyValueVM("01", "Adana"));
+            cities.Add(new KeyValueVM("06", "Ankara"));
+            cities.Add(new KeyValueVM("26", "Eskişehir"));
+            cities.Add(new KeyValueVM("34", "İstanbul"));
+            ViewBag.CitiesData = cities;
+        }
+
+        public void istanbulIlceleriDoldur()
+        {
+            List<KeyValueVM> districties = new List<KeyValueVM>();
+            districties.Add(new KeyValueVM("1", "Kadıköy"));
+            districties.Add(new KeyValueVM("2", "Maltepe"));
+            districties.Add(new KeyValueVM("3", "Pendik"));
+            districties.Add(new KeyValueVM("4", "Beşiktaş"));
+            districties.Add(new KeyValueVM("5", "Avcılar"));
+            districties.Add(new KeyValueVM("6", "Beylikdüzü"));
+            ViewBag.DistrictiesData = districties;
+        }
+
+        // cityId : CityId
+        [HttpPost]
+        public JsonResult GetDistrictiesByCity(int cityId)
+        {
+            List<KeyValueVM> districties = new List<KeyValueVM>();
+            districties.Add(new KeyValueVM("01", "Adana"));
+            districties.Add(new KeyValueVM("06", "Ankara"));
+            districties.Add(new KeyValueVM("26", "Eskişehir"));
+            districties.Add(new KeyValueVM("34", "İstanbul"));
+            return Json(districties);
         }
 
         public IActionResult Privacy()
