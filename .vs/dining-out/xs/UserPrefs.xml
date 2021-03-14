@@ -1,9 +1,8 @@
 ﻿<Properties StartupConfiguration="{0252D707-0A96-4566-B9A9-6E538BE5BD24}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="dining-out/Views/UyeOl/Index.cshtml">
     <Files>
-      <File FileName="dining-out/Controllers/UyeOlController.cs" Line="24" Column="56" />
-      <File FileName="dining-out/Views/UyeOl/Index.cshtml" Line="1" Column="1" />
-      <File FileName="dining-out/Views/Shared/_Layout.cshtml" Line="46" Column="107" />
+      <File FileName="dining-out/Controllers/UyeOlController.cs" Line="50" Column="44" />
+      <File FileName="dining-out/Views/UyeOl/Index.cshtml" Line="64" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,6 +10,7 @@
           <Node name="dining-out" expanded="True">
             <Node name="dining-out.Models" expanded="True">
               <Node name="DbModels" expanded="True" />
+              <Node name="ViewModels" expanded="True" />
             </Node>
             <Node name="dining-out.Utility" expanded="True" />
             <Node name="dining-out.WebUI" expanded="True">
@@ -18,7 +18,7 @@
               <Node name="Properties" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Anasayfa" expanded="True" />
-                <Node name="Shared" expanded="True" />
+                <Node name="MasaRezervasyon" expanded="True" />
                 <Node name="UyeOl" expanded="True">
                   <Node name="Index.cshtml" selected="True" />
                 </Node>

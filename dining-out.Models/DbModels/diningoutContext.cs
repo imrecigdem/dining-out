@@ -26,7 +26,7 @@ namespace dining_out.Models.DbModels
         {
             if (!optionsBuilder.IsConfigured)
             {
-                 optionsBuilder.UseMySQL("server=127.0.0.1;port=3306;uid=root;pwd=password;database=dining-out");
+                optionsBuilder.UseMySQL("server=127.0.0.1;port=3306;uid=root;pwd=password;database=dining-out");
             }
         }
 
@@ -173,6 +173,10 @@ namespace dining_out.Models.DbModels
                 entity.ToTable("User");
 
                 entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Description)
+                    .HasMaxLength(2000)
+                    .HasColumnName("description");
 
                 entity.Property(e => e.Name)
                     .HasMaxLength(300)

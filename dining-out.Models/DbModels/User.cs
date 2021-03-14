@@ -20,6 +20,7 @@ namespace dining_out.Models.DbModels
         public string Name { get; set; }
         public string Surname { get; set; }
         public string UserType { get; set; }
+        public string Description { get; set; }
 
         public virtual ICollection<BookTableAttendee> BookTableAttendees { get; set; }
         public virtual ICollection<BookTableRezervation> BookTableRezervations { get; set; }
