@@ -1,19 +1,24 @@
 ﻿<Properties StartupConfiguration="{0252D707-0A96-4566-B9A9-6E538BE5BD24}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="dining-out/Views/DashboardAnasayfa/Index.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="dining-out/Controllers/DashboardAnasayfaController.cs">
     <Files>
-      <File FileName="dining-out/Controllers/DashboardAnasayfaController.cs" Line="24" Column="27" />
-      <File FileName="dining-out/Views/DashboardAnasayfa/Index.cshtml" Line="9" Column="30" />
+      <File FileName="dining-out/Controllers/DashboardAnasayfaController.cs" Line="59" Column="95" />
+      <File FileName="dining-out/Views/DashboardAnasayfa/Index.cshtml" Line="23" Column="31" />
+      <File FileName="dining-out/Views/Shared/_LayoutDashboard.cshtml" Line="39" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="dining-out" expanded="True">
+            <Node name="dining-out.Models" expanded="True">
+              <Node name="ViewModels" expanded="True" />
+            </Node>
             <Node name="dining-out.WebUI" expanded="True">
-              <Node name="Controllers" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="DashboardAnasayfaController.cs" selected="True" />
+              </Node>
               <Node name="Views" expanded="True">
-                <Node name="DashboardAnasayfa" expanded="True">
-                  <Node name="Index.cshtml" selected="True" />
-                </Node>
+                <Node name="DashboardAnasayfa" expanded="True" />
+                <Node name="MasaRezervasyon" expanded="True" />
                 <Node name="Shared" expanded="True" />
               </Node>
             </Node>

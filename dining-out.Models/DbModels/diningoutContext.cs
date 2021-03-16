@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -27,6 +28,7 @@ namespace dining_out.Models.DbModels
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseMySQL("server=127.0.0.1;port=3306;uid=root;pwd=password;database=dining-out");
+                optionsBuilder.UseLazyLoadingProxies();
             }
         }
 

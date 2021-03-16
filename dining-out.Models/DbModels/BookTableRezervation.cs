@@ -21,9 +21,9 @@ namespace dining_out.Models.DbModels
         public string RezervationStatus { get; set; }
         public DateTime RezervationDate { get; set; }
         public TimeSpan RezervationTime { get; set; }
-        public int? RestaurantId { get; set; }
-        public int? AttendeeNumber { get; set; }
-        public DateTime? RezervationCreatedDatetime { get; set; }
+        public int RestaurantId { get; set; }
+        public int AttendeeNumber { get; set; }
+        public DateTime RezervationCreatedDatetime { get; set; }
 
         public virtual Restaurant Restaurant { get; set; }
         public virtual User RezervationUser { get; set; }

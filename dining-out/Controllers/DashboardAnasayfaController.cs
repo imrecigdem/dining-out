@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using dining_out.Models.ViewModels;
 using dining_out.Models.DbModels;
+using dining_out.Utility;
 
 namespace dining_out.Controllers
 {
@@ -21,7 +22,61 @@ namespace dining_out.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            int userId=1; // Login Kullanıcı olacak
+            diningoutContext dbContext = new diningoutContext();
+            User user = dbContext.Users.Where(user => user.Id.Equals(userId)).Single();
+            List<BookTableRezervation> bookTableRezervations = new List<BookTableRezervation>();
+            if (ConstantUtility.UserType.CUSTOMER.ToString().Equals(user.UserType))
+            {
+                bookTableRezervations = dbContext.BookTableRezervations.Where(book => book.RezervationUserId.Equals(user.Id)).ToList();
+            }
+            else
+            {
+                List<int> restIDList = dbContext.Restaurants.Where(rest => rest.UserId.Equals(user.Id)).Select(rest=>rest.Id).ToList();
+                bookTableRezervations = dbContext.BookTableRezervations.Where(book => restIDList.Contains(book.RestaurantId)).ToList();
+            }
+
+            DashboardAnasayfaVM dashboardAnasayfaVM = new DashboardAnasayfaVM();
+            List<BookTableRezervationVM> bookTableActiveRezervationVMs = new List<BookTableRezervationVM>();
+            List<BookTableRezervationVM> bookTableNewRezervationVMs = new List<BookTableRezervationVM>();
+            List<BookTableRezervationVM> bookTableClosedRezervationVMs = new List<BookTableRezervationVM>();
+            dashboardAnasayfaVM.BookTableActiveRezervations = bookTableActiveRezervationVMs;
+            dashboardAnasayfaVM.BookTableNewRezervations = bookTableNewRezervationVMs;
+            dashboardAnasayfaVM.BookTableClosedRezervations = bookTableClosedRezervationVMs;
+
+            foreach (BookTableRezervation bookTableRezervation in bookTableRezervations)
+            {
+                BookTableRezervationVM rezervationVM = new BookTableRezervationVM();
+                rezervationVM.AttendeeNumber = bookTableRezervation.AttendeeNumber;
+                rezervationVM.Description = bookTableRezervation.Description;
+                rezervationVM.Email = bookTableRezervation.Email;
+                rezervationVM.Id = bookTableRezervation.Id;
+                rezervationVM.NameLastname = bookTableRezervation.NameLastname;
+                rezervationVM.PhoneNumber = bookTableRezervation.PhoneNumber;
+                rezervationVM.RestaurantName = bookTableRezervation.Restaurant.Name;
+                rezervationVM.RezervationCreatedDatetime = bookTableRezervation.RezervationCreatedDatetime;
+                rezervationVM.RezervationDate = bookTableRezervation.RezervationDate.Date.ToShortDateString();
+                rezervationVM.RezervationTime = bookTableRezervation.RezervationTime.ToString(@"hh\:mm");
+                rezervationVM.RezervationStatus = ConstantUtility.textValueOfRezervationStatus(bookTableRezervation.RezervationStatus);
+                rezervationVM.RezervationUserName = bookTableRezervation.RezervationUser.Name+" "+bookTableRezervation.RezervationUser.Surname;
+
+                if (ConstantUtility.RezervationStatus.NEW.ToString().Equals(bookTableRezervation.RezervationStatus))
+                {
+                    dashboardAnasayfaVM.BookTableNewRezervations.Add(rezervationVM);
+                }
+                if (ConstantUtility.RezervationStatus.APPROVED.ToString().Equals(bookTableRezervation.RezervationStatus))
+                {
+                    dashboardAnasayfaVM.BookTableActiveRezervations.Add(rezervationVM);
+                }
+                if (ConstantUtility.RezervationStatus.CLOSED.ToString().Equals(bookTableRezervation.RezervationStatus)
+                    || ConstantUtility.RezervationStatus.CANCELLED.ToString().Equals(bookTableRezervation.RezervationStatus))
+                {
+                    dashboardAnasayfaVM.BookTableClosedRezervations.Add(rezervationVM);
+                }
+                
+            }
+
+            return View(dashboardAnasayfaVM);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
