@@ -75,3 +75,5 @@
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/obj/Debug/netcoreapp3.1/Razor/Views/DashboardRestaurant/Index.cshtml.g.cs
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/obj/Debug/netcoreapp3.1/Razor/Views/MasaRezervasyon/Index.cshtml.g.cs
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/obj/Debug/netcoreapp3.1/Razor/Views/UyeOl/Index.cshtml.g.cs
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/obj/Debug/netcoreapp3.1/Razor/Views/DashboardAnasayfa/Index.cshtml.g.cs
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_LayoutDashboard.cshtml.g.cs

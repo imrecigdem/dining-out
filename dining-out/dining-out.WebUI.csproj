@@ -11,6 +11,7 @@
     <Folder Include="Views\DashboardRestaurant\" />
     <Folder Include="Views\MasaRezervasyon\" />
     <Folder Include="Views\UyeOl\" />
+    <Folder Include="Views\DashboardAnasayfa\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dining-out.Models\dining-out.Models.csproj">
