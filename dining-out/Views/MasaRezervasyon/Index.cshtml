@@ -3,11 +3,12 @@
 }
 
 <br />
-<div>
+<!-- Table Reservation Form -->
 
-    <!-- Table Reservation Form -->
-    <section id="book-a-table" class="book-a-table">
-        <div class="container" data-aos="fade-up">
+
+<section id="book-a-table" class="book-a-table">
+    <div class="container" data-aos="fade-up">
+        <div class="shadow w-100 p-3 mb-5 bg-white rounded">
             <div class="row">
                 <div class="col-md-8 offset-md-2 text-center">
                     <h2 class="text-primary">Masa Rezervasyonu</h2>
@@ -44,25 +45,28 @@
                 <div class="form-group">
                     <textarea class="form-control" name="Aciklama" placeholder="Aciklama" rows="10"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary float-right mt-3">Rezervasyon Yap</button>
+
+                <button type="submit" class="btn btn-primary float-right mt-6">Rezervasyon Yap</button>
+            
             </form>
-            <div class="row">
-                @if (ViewBag.Basarili != null && ViewBag.Basarili == true)
-                {
-                <div class="alert alert-success" role="alert">
-                    Rezervasyonuz alınmıştır. En kısa sürede rezervasyon onayınız iletilecektir.
-                    Restauranta gitmeden menü seçimlerinizi profilinizden yapabilirsiniz.
+                <div class="row">
+                    @if (ViewBag.Basarili != null && ViewBag.Basarili == true)
+                    {
+                        <div class="alert alert-success" role="alert">
+                            Rezervasyonuz alınmıştır. En kısa sürede rezervasyon onayınız iletilecektir.
+                            Restauranta gitmeden menü seçimlerinizi profilinizden yapabilirsiniz.
+                        </div>
+                    }
+                    else if (ViewBag.Basarili != null && ViewBag.Basarili == false)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            Bir hata ile karşılaşıldı daha sonra tekrar deneyiniz.!!!
+                        </div>
+                    }
                 </div>
-                }
-                else if(ViewBag.Basarili != null && ViewBag.Basarili == false)
-                {
-                    <div class="alert alert-danger" role="alert">
-                        Bir hata ile karşılaşıldı daha sonra tekrar deneyiniz.!!!
-                    </div>
-                }
             </div>
         </div>
-      </section>
+</section>
     <!-- End Table Reservation Form -->
 
-</div>
+
