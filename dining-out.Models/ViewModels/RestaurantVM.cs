@@ -22,6 +22,7 @@ namespace dining_out.Models.ViewModels
         public string CoverImg { get; set; }
         public IFormFile LogoFile { set; get; }
         public IFormFile CoverImgFile { get; set; }
+        public string LastRezervationText { get; set; }
         public int NewBookingCount { get; set; }
         public int ApprovedBookingCount { get; set; }
         public int ClosedBookingCount { get; set; }

@@ -84,6 +84,19 @@ namespace dining_out.Controllers
                 {
                     restaurantVM.Desc = restaurant.Desc;
                 }
+
+                List<BookTableRezervation> bookTableRezervations = restaurant.BookTableRezervations.OrderBy(book => book.RezervationCreatedDatetime).ToList();
+                if(bookTableRezervations!=null && bookTableRezervations.Count > 0)
+                {
+                    DateTime rezervationCreatedDatetime = bookTableRezervations[0].RezervationCreatedDatetime;
+                    TimeSpan difference = DateTime.Now - rezervationCreatedDatetime;
+                    restaurantVM.LastRezervationText = "Son rezervasyon "+ difference.TotalMinutes + " dakika önce";
+                }
+                else
+                {
+                    restaurantVM.LastRezervationText = "Henüz rezervasyon almamıştır.";
+                }
+
                 restaurants.Add(restaurantVM);
                 restaurants.Add(restaurantVM);
                 restaurants.Add(restaurantVM);

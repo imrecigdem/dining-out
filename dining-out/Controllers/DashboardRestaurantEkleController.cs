@@ -46,12 +46,14 @@ namespace dining_out.Controllers
             var logofilePath = "";
             var coverfilePath = "";
             var uploads = Path.Combine(_hostingEnvironment.WebRootPath, "uploads");
+            var contextUploads = Path.Combine(_hostingEnvironment.ContentRootPath, "uploads");
 
             if (restaurantVM.LogoFile != null)
             {
                 logoUniqueFileName = Converters.GetUniqueFileName(restaurantVM.LogoFile.FileName);
                 logofilePath = Path.Combine(uploads, logoUniqueFileName);
                 restaurantVM.LogoFile.CopyTo(new FileStream(logofilePath, FileMode.Create));
+                logofilePath = Path.Combine("/uploads", logoUniqueFileName);
             }
 
             if (restaurantVM.CoverImgFile != null)
@@ -59,6 +61,7 @@ namespace dining_out.Controllers
                 coverUniqueFileName = Converters.GetUniqueFileName(restaurantVM.CoverImgFile.FileName);
                 coverfilePath = Path.Combine(uploads, coverUniqueFileName);
                 restaurantVM.CoverImgFile.CopyTo(new FileStream(coverfilePath, FileMode.Create));
+                coverfilePath = Path.Combine("/uploads", coverUniqueFileName);
             }
 
             Restaurant restaurant = new Restaurant();
