@@ -82,7 +82,7 @@ namespace dining_out.Controllers
             StaticDataManagerUtility.IlceleriDoldur(this, restaurantVM.CityId);
             ViewBag.Basarili = true;
 
-            return View(restaurantVM);
+            return View("Index", restaurantVM);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

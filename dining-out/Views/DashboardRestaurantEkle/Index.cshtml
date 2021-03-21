@@ -37,7 +37,7 @@
                     {
                         <div class="alert alert-success" role="alert">
                             Restaurant kayıt işlemi başarıyla gerçekleştirilmiştir.
-                            <a asp-area="" asp-controller="DashboardRestaurant" asp-action="Index" class="list-group-item list-group-item-action bg-light">Restaurantlar Bölümüne Gidebilirsiniz</a>
+                            <a asp-area="" asp-controller="DashboardRestaurant" asp-action="Index">Restaurantlar Bölümüne Gidebilirsiniz</a>
                         </div>
                     }
                     else if (ViewBag.Basarili != null && ViewBag.Basarili == false)
@@ -185,7 +185,9 @@
     });
 </script>
 
-<script type="text/javascript">document.querySelector('.custom-file-input').addEventListener('change', function (e) {
+<script type="text/javascript">
+
+    document.querySelector('.custom-file-input').addEventListener('change', function (e) {
         var name = document.getElementById("LogoFile").files[0].name;
         var nextSibling = e.target.nextElementSibling
         nextSibling.innerText = name
@@ -195,4 +197,6 @@
         var name = document.getElementById("CoverImgFile").files[0].name;
         var nextSibling = e.target.nextElementSibling
         nextSibling.innerText = name
-    })</script>
+    })
+
+</script>
