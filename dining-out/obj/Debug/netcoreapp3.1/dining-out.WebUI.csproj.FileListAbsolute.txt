@@ -79,3 +79,17 @@
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/bin/Debug/netcoreapp3.1/Castle.Core.dll
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/bin/Debug/netcoreapp3.1/Microsoft.EntityFrameworkCore.Proxies.dll
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/bin/Debug/netcoreapp3.1/MySql.EntityFrameworkCore.dll
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/obj/Debug/netcoreapp3.1/Razor/Views/DashboardRestaurantEkle/Index.cshtml.g.cs
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.JsonPatch.dll
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Razor.Language.dll
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/bin/Debug/netcoreapp3.1/Microsoft.CodeAnalysis.dll
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/bin/Debug/netcoreapp3.1/Microsoft.CodeAnalysis.CSharp.dll
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/bin/Debug/netcoreapp3.1/Microsoft.CodeAnalysis.Razor.dll
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/bin/Debug/netcoreapp3.1/Microsoft.DotNet.PlatformAbstractions.dll
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/bin/Debug/netcoreapp3.1/Microsoft.Extensions.DependencyModel.dll
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/bin/Debug/netcoreapp3.1/Newtonsoft.Json.Bson.dll
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/obj/Debug/netcoreapp3.1/dining-out.MvcApplicationPartsAssemblyInfo.cs
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/bin/Debug/netcoreapp3.1/Microsoft.AspNetCore.Http.Features.dll
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/bin/Debug/netcoreapp3.1/System.IO.Pipelines.dll

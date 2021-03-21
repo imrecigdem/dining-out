@@ -70,9 +70,9 @@ namespace dining_out.Controllers
             restaurantVM.Address = restaurant.Address;
             restaurantVM.Capacity = restaurant.Capacity;
             restaurantVM.City = restaurant.City;
-            restaurantVM.CityId = restaurant.CityId;
+            restaurantVM.CityId = restaurant.CityId.ToString();
             restaurantVM.District = restaurant.District;
-            restaurantVM.DistrictId = restaurant.DistrictId;
+            restaurantVM.DistrictId = restaurant.DistrictId.ToString();
             restaurantVM.Logo = restaurant.Logo;
             restaurantVM.Name = restaurant.Name;
             restaurantVM.Desc = restaurant.Desc;

@@ -70,8 +70,8 @@
                 for (var i = 0; i < data.length; i++) {
                     var district = data[i];
                     var opt = $("<option></option>");
-                    opt.val(district.Key);
-                    opt.text(district.Value);
+                    opt.val(district.key);
+                    opt.text(district.value);
                     console.log(opt);
                     $("#SelectedDistrictId").append(opt);
                 }

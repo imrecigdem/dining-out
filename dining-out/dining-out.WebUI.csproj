@@ -12,6 +12,9 @@
     <Folder Include="Views\MasaRezervasyon\" />
     <Folder Include="Views\UyeOl\" />
     <Folder Include="Views\DashboardAnasayfa\" />
+    <Folder Include="Views\DashboardRestaurantEkle\" />
+    <Folder Include="Utility\" />
+    <Folder Include="wwwroot\uploads\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dining-out.Models\dining-out.Models.csproj">
@@ -28,5 +31,11 @@
     </PackageReference>
     <PackageReference Include="Bootstrap.v3.Datetimepicker.CSS" Version="4.17.49" />
     <PackageReference Include="Bootstrap.v3.Datetimepicker" Version="4.17.49" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.4">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.4" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="5.0.0" />
   </ItemGroup>
 </Project>

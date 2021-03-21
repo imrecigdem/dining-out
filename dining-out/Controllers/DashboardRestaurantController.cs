@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using dining_out.Models.ViewModels;
 using dining_out.Models.DbModels;
+using dining_out.Utility;
 
 namespace dining_out.Controllers
 {
@@ -21,7 +22,19 @@ namespace dining_out.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            int userId = 1; // Login Kullanıcı olacak
+            diningoutContext dbContext = new diningoutContext();
+            List<Restaurant> restaurants = dbContext.Restaurants.Where(res => res.UserId.Equals(userId)).ToList();
+            List<RestaurantVM> restaurantVMs = new List<RestaurantVM>();
+
+            foreach(Restaurant restaurant in restaurants)
+            {
+                restaurantVMs.Add(Converters.convertModel(restaurant));
+            }
+
+            DashboardRestaurantVM dashboardRestaurantVM = new DashboardRestaurantVM();
+            dashboardRestaurantVM.Restaurants = restaurantVMs;
+            return View(dashboardRestaurantVM);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

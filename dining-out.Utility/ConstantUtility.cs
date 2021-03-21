@@ -30,6 +30,46 @@ namespace dining_out.Utility
 
         }
 
+        public static bool IsRezervationStatusNEW(string rezervationStatus)
+        {
+            if (RezervationStatus.NEW.ToString().Equals(rezervationStatus))
+            {
+                return true;
+            }
+            return false;
+
+        }
+
+        public static bool IsRezervationStatusAPPROVED(string rezervationStatus)
+        {
+            if (RezervationStatus.APPROVED.ToString().Equals(rezervationStatus))
+            {
+                return true;
+            }
+            return false;
+
+        }
+
+        public static bool IsRezervationStatusCANCELLED(string rezervationStatus)
+        {
+            if (RezervationStatus.CANCELLED.ToString().Equals(rezervationStatus))
+            {
+                return true;
+            }
+            return false;
+
+        }
+
+        public static bool IsRezervationStatusCLOSED(string rezervationStatus)
+        {
+            if (RezervationStatus.CLOSED.ToString().Equals(rezervationStatus))
+            {
+                return true;
+            }
+            return false;
+
+        }
+
         public enum UserType
         {
             CUSTOMER, RESTAURANT

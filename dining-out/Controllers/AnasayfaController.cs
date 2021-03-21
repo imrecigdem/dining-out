@@ -31,7 +31,7 @@ namespace dining_out.Controllers
             sample.BookTableDate = DateTime.Now;
             sample.Capacity = 2;
             sample.CityId = "34";
-            sample.DistrictId = "1";
+            sample.DistrictId = "22";
             return View("Index", sample);
         }
 
@@ -69,9 +69,9 @@ namespace dining_out.Controllers
                 restaurantVM.Address = restaurant.Address;
                 restaurantVM.Capacity = restaurant.Capacity;
                 restaurantVM.City = restaurant.City;
-                restaurantVM.CityId = restaurant.CityId;
+                restaurantVM.CityId = restaurant.CityId.ToString();
                 restaurantVM.District = restaurant.District;
-                restaurantVM.DistrictId = restaurant.DistrictId;
+                restaurantVM.DistrictId = restaurant.DistrictId.ToString();
                 restaurantVM.Logo = restaurant.Logo;
                 restaurantVM.Name = restaurant.Name;
                 restaurantVM.CoverImg = restaurant.CoverImg;
@@ -126,36 +126,19 @@ namespace dining_out.Controllers
 
         public void sehirleriDoldur()
         {
-            List<KeyValueVM> cities = new List<KeyValueVM>();
-            cities.Add(new KeyValueVM("01", "Adana"));
-            cities.Add(new KeyValueVM("06", "Ankara"));
-            cities.Add(new KeyValueVM("26", "Eskişehir"));
-            cities.Add(new KeyValueVM("34", "İstanbul"));
-            ViewBag.CitiesData = cities;
+            StaticDataManagerUtility.sehirleriDoldur(this);
         }
 
         public void istanbulIlceleriDoldur()
         {
-            List<KeyValueVM> districties = new List<KeyValueVM>();
-            districties.Add(new KeyValueVM("1", "Kadıköy"));
-            districties.Add(new KeyValueVM("2", "Maltepe"));
-            districties.Add(new KeyValueVM("3", "Pendik"));
-            districties.Add(new KeyValueVM("4", "Beşiktaş"));
-            districties.Add(new KeyValueVM("5", "Avcılar"));
-            districties.Add(new KeyValueVM("6", "Beylikdüzü"));
-            ViewBag.DistrictiesData = districties;
+            StaticDataManagerUtility.IlceleriDoldur(this, "34");
         }
 
         // cityId : CityId
         [HttpPost]
-        public JsonResult GetDistrictiesByCity(int cityId)
+        public JsonResult GetDistrictiesByCity(string cityId)
         {
-            List<KeyValueVM> districties = new List<KeyValueVM>();
-            districties.Add(new KeyValueVM("01", "Adana"));
-            districties.Add(new KeyValueVM("06", "Ankara"));
-            districties.Add(new KeyValueVM("26", "Eskişehir"));
-            districties.Add(new KeyValueVM("34", "İstanbul"));
-            return Json(districties);
+            return Json(StaticDataManagerUtility.ilceBul(cityId));
         }
 
         public IActionResult Privacy()

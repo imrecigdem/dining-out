@@ -10,6 +10,7 @@
 
     <title>@ViewData["Title"] - Dining Out</title>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -28,9 +29,10 @@
             <div class="sidebar-heading text-primary">Dining-Out</div>
             <div class="list-group list-group-flush">
                 <a asp-area="" asp-controller="DashboardAnasayfa" asp-action="Index" class="list-group-item list-group-item-action bg-light">Dashboard Anasayfa</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Masa Rezervasyonları</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Restaurantlar</a>
+                <a asp-area="" asp-controller="DashboardAnasayfa" asp-action="Index" class="list-group-item list-group-item-action bg-light">Masa Rezervasyonları</a>
+                <a asp-area="" asp-controller="DashboardRestaurant" asp-action="Index" class="list-group-item list-group-item-action bg-light">Restaurantlar</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Profil</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light"></a>
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
