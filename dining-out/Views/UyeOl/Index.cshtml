@@ -35,7 +35,7 @@
                             <input id="UserName" name="UserName" placeholder="E-Mailiniz" class="form-control" type="text">
                         </div>
                         <div class="form-group col-md-6">
-                            <input id="Password" name="Password" placeholder="Parolanız" class="form-control" type="text">
+                            <input id="Password" name="Password" placeholder="Parolanız" class="form-control" type="password">
                         </div>
                     </div>
                     <div class="form-row">
@@ -43,8 +43,18 @@
                         </div>
                         <div class="form-group col-md-6">
                             <select id="UserType" name="UserType" class="form-control">
-                                <option value="1"> Kullanıcı Olarak Kayıt Ol</option>
-                                <option value="2"> Restaurant Olarak Kayıt Ol</option>
+                                @if (ViewBag.UserType=="1")
+                                {
+                                    <option value="1" disabled selected> Kullanıcı Olarak Kayıt Ol</option>
+                                }
+                                else if (ViewBag.UserType=="2")
+                                {
+                                    <option value="2" disabled selected> Restaurant Olarak Kayıt Ol</option>
+                                }
+                                else{
+                                    <option value="1"> Kullanıcı Olarak Kayıt Ol</option>
+                                    <option value="2"> Restaurant Olarak Kayıt Ol</option>
+                                }
                             </select>
                         </div>
                         <div class="form-group col-md-12">

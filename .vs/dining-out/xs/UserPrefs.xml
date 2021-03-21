@@ -1,22 +1,17 @@
 ﻿<Properties StartupConfiguration="{0252D707-0A96-4566-B9A9-6E538BE5BD24}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="dining-out/Controllers/AnasayfaController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="dining-out/Controllers/UyeOlController.cs">
     <Files>
-      <File FileName="dining-out/Views/Anasayfa/RestaurantSearchResult.cshtml" Line="22" Column="57" />
-      <File FileName="dining-out/Controllers/AnasayfaController.cs" Line="83" Column="21" />
+      <File FileName="dining-out/Controllers/UyeOlController.cs" Line="44" Column="42" IsPinned="True" />
+      <File FileName="dining-out/Views/UyeOl/Index.cshtml" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="dining-out" expanded="True">
-            <Node name="dining-out.Models" expanded="True">
-              <Node name="ViewModels" expanded="True" />
-            </Node>
+            <Node name="dining-out.Models" expanded="True" />
             <Node name="dining-out.WebUI" expanded="True">
               <Node name="Controllers" expanded="True">
-                <Node name="AnasayfaController.cs" selected="True" />
-              </Node>
-              <Node name="Views" expanded="True">
-                <Node name="Anasayfa" expanded="True" />
+                <Node name="UyeOlController.cs" selected="True" />
               </Node>
             </Node>
           </Node>

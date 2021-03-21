@@ -24,10 +24,15 @@ namespace dining_out.Controllers
         public IActionResult Index(string kullaniciTipi)
         {
             UyeOLVM uyeOl = new UyeOLVM();
-            uyeOl.UserType = "2";
+            ViewBag.UserType = "";
             if (ConstantUtility.UserType.CUSTOMER.ToString().Equals(kullaniciTipi))
             {
                 uyeOl.UserType = "1";
+                ViewBag.UserType = "1";
+            } else if (ConstantUtility.UserType.RESTAURANT.ToString().Equals(kullaniciTipi))
+            {
+                uyeOl.UserType = "2";
+                ViewBag.UserType = "2";
             }
             return View("Index", uyeOl);
         }
@@ -37,6 +42,7 @@ namespace dining_out.Controllers
         {
             diningoutContext dbContext = new diningoutContext();
             bool userFound = dbContext.Users.Where(user => user.UserName.Equals(uyeOl.UserName)).Any();
+            var queryString = Request.QueryString;
             if (userFound)
             {
                 ViewBag.hataMesaji = "Aynı E-mail adresi ile kayıtlı kullanıcı bulunuyor";

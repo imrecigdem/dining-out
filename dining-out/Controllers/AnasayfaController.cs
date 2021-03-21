@@ -94,7 +94,7 @@ namespace dining_out.Controllers
                 }
                 else
                 {
-                    restaurantVM.LastRezervationText = "Henüz rezervasyon almamıştır.";
+                    restaurantVM.LastRezervationText = "Henüz rezervasyon alınmamış.";
                 }
 
                 restaurants.Add(restaurantVM);
