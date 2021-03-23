@@ -14,7 +14,7 @@ namespace dining_out.Models.DbModels
 
         public int Id { get; set; }
         public string Description { get; set; }
-        public int? RezervationUserId { get; set; }
+        public int RezervationUserId { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string NameLastname { get; set; }

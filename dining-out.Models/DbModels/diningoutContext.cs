@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -20,6 +19,9 @@ namespace dining_out.Models.DbModels
 
         public virtual DbSet<BookTableAttendee> BookTableAttendees { get; set; }
         public virtual DbSet<BookTableRezervation> BookTableRezervations { get; set; }
+        public virtual DbSet<Menu> Menus { get; set; }
+        public virtual DbSet<MenuItem> MenuItems { get; set; }
+        public virtual DbSet<MenuItemCategory> MenuItemCategories { get; set; }
         public virtual DbSet<Restaurant> Restaurants { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
@@ -114,6 +116,95 @@ namespace dining_out.Models.DbModels
                     .WithMany(p => p.BookTableRezervations)
                     .HasForeignKey(d => d.RezervationUserId)
                     .HasConstraintName("BookTableRezervation_User_id_fk");
+            });
+
+            modelBuilder.Entity<Menu>(entity =>
+            {
+                entity.ToTable("Menu");
+
+                entity.HasIndex(e => e.RestaurantId, "Menu_Restaurant_id_fk");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Description)
+                    .HasMaxLength(1000)
+                    .HasColumnName("description");
+
+                entity.Property(e => e.MenuName)
+                    .HasMaxLength(2000)
+                    .HasColumnName("menu_name");
+
+                entity.Property(e => e.RestaurantId).HasColumnName("restaurant_id");
+
+                entity.Property(e => e.Statu)
+                    .HasMaxLength(20)
+                    .HasColumnName("statu");
+
+                entity.HasOne(d => d.Restaurant)
+                    .WithMany(p => p.Menus)
+                    .HasForeignKey(d => d.RestaurantId)
+                    .HasConstraintName("Menu_Restaurant_id_fk");
+            });
+
+            modelBuilder.Entity<MenuItem>(entity =>
+            {
+                entity.ToTable("MenuItem");
+
+                entity.HasIndex(e => e.CategoryId, "MenuItem_MenuItemCategory_id_fk");
+
+                entity.HasIndex(e => e.MenuId, "MenuItem_Menu_id_fk");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.CategoryId).HasColumnName("category_id");
+
+                entity.Property(e => e.MenuId).HasColumnName("menu_id");
+
+                entity.Property(e => e.MenuItemDescription)
+                    .HasMaxLength(2000)
+                    .HasColumnName("menu_item_description");
+
+                entity.Property(e => e.MenuItemIngredients)
+                    .HasMaxLength(2000)
+                    .HasColumnName("menu_item_ingredients");
+
+                entity.Property(e => e.MenuItemName)
+                    .HasMaxLength(2000)
+                    .HasColumnName("menu_item_name");
+
+                entity.Property(e => e.Price)
+                    .HasColumnType("decimal(10,0)")
+                    .HasColumnName("price");
+
+                entity.HasOne(d => d.Category)
+                    .WithMany(p => p.MenuItems)
+                    .HasForeignKey(d => d.CategoryId)
+                    .HasConstraintName("MenuItem_MenuItemCategory_id_fk");
+
+                entity.HasOne(d => d.Menu)
+                    .WithMany(p => p.MenuItems)
+                    .HasForeignKey(d => d.MenuId)
+                    .HasConstraintName("MenuItem_Menu_id_fk");
+            });
+
+            modelBuilder.Entity<MenuItemCategory>(entity =>
+            {
+                entity.ToTable("MenuItemCategory");
+
+                entity.HasIndex(e => e.RestaurantId, "MenuItemCategory_Restaurant_id_fk");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.CategoryName)
+                    .HasMaxLength(200)
+                    .HasColumnName("category_name");
+
+                entity.Property(e => e.RestaurantId).HasColumnName("restaurant_id");
+
+                entity.HasOne(d => d.Restaurant)
+                    .WithMany(p => p.MenuItemCategories)
+                    .HasForeignKey(d => d.RestaurantId)
+                    .HasConstraintName("MenuItemCategory_Restaurant_id_fk");
             });
 
             modelBuilder.Entity<Restaurant>(entity =>
