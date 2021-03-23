@@ -8,20 +8,12 @@
 @using (Html.BeginForm("MenuKaydet", "DashboardRestaurantMenuDuzenle", FormMethod.Post, new { restaurantId = Model.RestaurantId }))
 {
     <div class="form-row">
-        <div class="form-group col-lg-12 col-md-6">
-            @if (ViewBag.Basarili != null && ViewBag.Basarili == true)
-            {
-                <div class="alert alert-success" role="alert">
-                    Restaurant Menü Değişiklik işlemi başarıyla gerçekleştirilmiştir.
-                    <a asp-area="" asp-controller="DashboardRestaurant" asp-action="Index">Restaurantlar Bölümüne Gidebilirsiniz</a>
-                </div>
-            }
-            else if (ViewBag.Basarili != null && ViewBag.Basarili == false)
-            {
-                <div class="alert alert-danger" role="alert">
-                    @ViewBag.hataMesaji
-                </div>
-            }
+        <div class="col-lg-2 ">
+        </div>
+        <div class="col-lg-8 form-group">
+            <h3 class="text-primary">@Model.Restaurant.SystemDefinitionName Menü</h3>
+        </div>
+        <div class="col-lg-2 ">
         </div>
     </div>
 
@@ -92,13 +84,35 @@
             { counter = Model.MenuItemsDictionary[key].Count; }
         }
 
-     }
+    }
 
     <div class="form-row">
         <div class="col-lg-2 ">
         </div>
         <div class="col-lg-8">
             <button type="submit" name="mainSaveButton" value="submitAll" class="btn btn-primary float-right mt-6">Kaydet</button>
+        </div>
+        <div class="col-lg-2 ">
+        </div>
+    </div>
+    <br />
+    <div class="form-row">
+        <div class="col-lg-2 ">
+        </div>
+        <div class="col-lg-8">
+            @if (ViewBag.Basarili != null && ViewBag.Basarili == true)
+            {
+                <div class="alert alert-success" role="alert">
+                    Restaurant Menü Değişiklik işlemi başarıyla gerçekleştirilmiştir.
+                    <a asp-area="" asp-controller="DashboardRestaurant" asp-action="Index">Restaurantlar Bölümüne Gidebilirsiniz</a>
+                </div>
+            }
+            else if (ViewBag.Basarili != null && ViewBag.Basarili == false)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @ViewBag.hataMesaji
+                </div>
+            }
         </div>
         <div class="col-lg-2 ">
         </div>

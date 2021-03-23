@@ -196,7 +196,6 @@ namespace dining_out.Models.DbModels
                 entity.Property(e => e.CategoryName)
                     .HasMaxLength(200)
                     .HasColumnName("category_name");
-   
             });
 
             modelBuilder.Entity<Restaurant>(entity =>

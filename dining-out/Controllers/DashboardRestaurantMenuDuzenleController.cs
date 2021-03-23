@@ -75,8 +75,11 @@ namespace dining_out.Controllers
             MenuItemVM menuItem = menuVm.menuItem;
             menuVm.Restaurant = restaurantVM;
             menuVm.RestaurantId = restaurantId;
-            menuVm.MenuItems.Add(menuItem);
-
+            if (!Request.Form.ContainsKey("mainSaveButton"))
+            {
+                menuVm.MenuItems.Add(menuItem);
+            }
+            
             MenuItemCategoryVM menuItemCategoryVM = new MenuItemCategoryVM();
             MenuItemVM menuItemVM = new MenuItemVM();
             menuItemVM.Category = menuItemCategoryVM;
@@ -153,6 +156,7 @@ namespace dining_out.Controllers
                 }
 
             }
+            ViewBag.Basarili = true;
 
         }
 

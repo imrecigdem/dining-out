@@ -8,8 +8,8 @@ namespace dining_out.Models.DbModels
     public partial class MenuItem
     {
         public int Id { get; set; }
-        public int? MenuId { get; set; }
-        public int? CategoryId { get; set; }
+        public int MenuId { get; set; }
+        public int CategoryId { get; set; }
         public string MenuItemName { get; set; }
         public string MenuItemIngredients { get; set; }
         public string MenuItemDescription { get; set; }

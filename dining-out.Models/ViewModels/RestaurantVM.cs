@@ -17,7 +17,7 @@ namespace dining_out.Models.ViewModels
         public string CityId { get; set; }
         public string DistrictId { get; set; }
         public string Address { get; set; }
-        public int? Capacity { get; set; }
+        public int Capacity { get; set; }
         public string Logo { set; get; }
         public string CoverImg { get; set; }
         public MenuVm Menu { get; set; }
