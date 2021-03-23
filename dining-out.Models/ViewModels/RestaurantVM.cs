@@ -20,6 +20,7 @@ namespace dining_out.Models.ViewModels
         public int? Capacity { get; set; }
         public string Logo { set; get; }
         public string CoverImg { get; set; }
+        public MenuVm Menu { get; set; }
         public IFormFile LogoFile { set; get; }
         public IFormFile CoverImgFile { get; set; }
         public string LastRezervationText { get; set; }

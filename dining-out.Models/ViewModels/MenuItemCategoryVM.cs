@@ -5,16 +5,14 @@ using System.Collections.Generic;
 
 namespace dining_out.Models.DbModels
 {
-    public partial class MenuItemCategory
+    public partial class MenuItemCategoryVM
     {
-        public MenuItemCategory()
+        public MenuItemCategoryVM()
         {
-            MenuItems = new HashSet<MenuItem>();
         }
 
         public int Id { get; set; }
         public string CategoryName { get; set; }
 
-        public virtual ICollection<MenuItem> MenuItems { get; set; }
     }
 }

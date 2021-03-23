@@ -191,20 +191,12 @@ namespace dining_out.Models.DbModels
             {
                 entity.ToTable("MenuItemCategory");
 
-                entity.HasIndex(e => e.RestaurantId, "MenuItemCategory_Restaurant_id_fk");
-
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.CategoryName)
                     .HasMaxLength(200)
                     .HasColumnName("category_name");
-
-                entity.Property(e => e.RestaurantId).HasColumnName("restaurant_id");
-
-                entity.HasOne(d => d.Restaurant)
-                    .WithMany(p => p.MenuItemCategories)
-                    .HasForeignKey(d => d.RestaurantId)
-                    .HasConstraintName("MenuItemCategory_Restaurant_id_fk");
+   
             });
 
             modelBuilder.Entity<Restaurant>(entity =>

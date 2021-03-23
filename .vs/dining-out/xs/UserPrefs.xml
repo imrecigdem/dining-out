@@ -1,18 +1,18 @@
 ﻿<Properties StartupConfiguration="{0252D707-0A96-4566-B9A9-6E538BE5BD24}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="dining-out/Controllers/DashboardAnasayfaController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="dining-out.Models/DbModels/diningoutContext.cs">
     <Files>
-      <File FileName="dining-out/Controllers/DashboardAnasayfaController.cs" Line="58" Column="81" />
+      <File FileName="dining-out/Controllers/DashboardRestaurantEkleController.cs" Line="32" Column="23" />
+      <File FileName="dining-out/Views/DashboardRestaurantEkle/Index.cshtml" Line="45" Column="67" />
+      <File FileName="dining-out.Models/DbModels/MenuItemCategory.cs" Line="13" Column="10" />
+      <File FileName="dining-out.Models/DbModels/diningoutContext.cs" Line="202" Column="16" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="dining-out" expanded="True">
             <Node name="dining-out.Models" expanded="True">
-              <Node name="DbModels" expanded="True" />
-            </Node>
-            <Node name="dining-out.WebUI" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="DashboardAnasayfaController.cs" selected="True" />
+              <Node name="DbModels" expanded="True">
+                <Node name="diningoutContext.cs" selected="True" />
               </Node>
             </Node>
           </Node>
