@@ -25,7 +25,7 @@
                         <th>Yeni Rezervasyonlu Masalar</th>
                         <th>Aktif Rezervasyonlu Masalar</th>
                         <th>Geçmiş Rezervasyonlu Masalar</th>
-                        <th>Detay</th>
+                        <th>Menü Düzenle</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,7 +42,14 @@
                         <td>@restaurant.NewBookingCount</td>
                         <td>@restaurant.ApprovedBookingCount</td>
                         <td>@restaurant.ClosedBookingCount</td>
-                        <td><i class="bi bi-arrow-right-circle-fill" style="font-size: 2rem; color: cornflowerblue;"></i></td>
+                        <td>
+                            <a asp-controller="DashboardRestaurantMenuDuzenle"
+                               asp-action="Index"
+                               asp-route-restaurantId="@restaurant.Id">
+                                <i class="bi bi-arrow-right-circle-fill" style="font-size: 2rem; color: cornflowerblue;">
+                                </i>
+                            </a>
+                        </td>
                     </tr>
                     }
                 </tbody>

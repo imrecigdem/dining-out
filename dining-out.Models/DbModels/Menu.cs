@@ -15,7 +15,7 @@ namespace dining_out.Models.DbModels
         public int Id { get; set; }
         public string MenuName { get; set; }
         public string Description { get; set; }
-        public int? RestaurantId { get; set; }
+        public int RestaurantId { get; set; }
         public string Statu { get; set; }
 
         public virtual Restaurant Restaurant { get; set; }

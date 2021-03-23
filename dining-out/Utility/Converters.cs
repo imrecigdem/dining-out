@@ -47,7 +47,44 @@ namespace dining_out.Utility
             restaurantVM.NewBookingCount = newBookings;
             restaurantVM.ApprovedBookingCount = approvedBookings;
             restaurantVM.ClosedBookingCount = closedBookings;
+            restaurantVM.Menu = convertModel(restaurant.Menus);
             return restaurantVM;
+        }
+
+        public static MenuVm convertModel(ICollection<Menu> menus)
+        {
+            MenuVm menuVM = new MenuVm();
+            if(menus!=null && menus.Count > 0)
+            {
+                Menu menu = menus.First();
+                menuVM.Description = menu.Description;
+                menuVM.Id = menu.Id;
+                menuVM.MenuName = menu.MenuName;
+                menuVM.RestaurantId = menu.RestaurantId;
+                menuVM.Statu = menu.Statu;
+                if(menu.MenuItems!=null && menu.MenuItems.Count > 0)
+                {
+                    List<MenuItemVM> menuItemVMs = new List<MenuItemVM>();
+                    foreach(MenuItem menuItem in menu.MenuItems)
+                    {
+                        MenuItemCategoryVM menuItemCategoryVM = new MenuItemCategoryVM();
+                        menuItemCategoryVM.Id = menuItem.Category.Id;
+                        menuItemCategoryVM.CategoryName = menuItem.Category.CategoryName;
+                        MenuItemVM menuItemVM = new MenuItemVM();
+                        menuItemVM.Category = menuItemCategoryVM;
+                        menuItemVM.Id = menuItem.Id;
+                        menuItemVM.MenuItemDescription = menuItem.MenuItemDescription;
+                        menuItemVM.MenuItemIngredients = menuItem.MenuItemIngredients;
+                        menuItemVM.MenuItemName = menuItem.MenuItemName;
+                        menuItemVM.Price = menuItem.Price;
+                        menuItemVMs.Add(menuItemVM);
+                    }
+                    menuVM.MenuItems = menuItemVMs;
+                }
+                return menuVM;
+            }
+            return null;
+
         }
 
         public static string GetUniqueFileName(string fileName)

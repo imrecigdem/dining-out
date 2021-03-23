@@ -9,14 +9,18 @@ namespace dining_out.Models.ViewModels
       
         public MenuVm()
         {
-            MenuItems = new HashSet<MenuItemVM>();
+            MenuItems = new List<MenuItemVM>();
+            MenuItemsDictionary = new Dictionary<string, List<MenuItemVM>>();
         }
 
         public int Id { get; set; }
         public string MenuName { get; set; }
         public string Description { get; set; }
         public string Statu { get; set; }
-
-        public ICollection<MenuItemVM> MenuItems { get; set; }
+        public RestaurantVM Restaurant { get; set; }
+        public int RestaurantId { get; set; }
+        public MenuItemVM menuItem { get; set; }
+        public List<MenuItemVM> MenuItems { get; set; }
+        public Dictionary<string,List<MenuItemVM>> MenuItemsDictionary { get; set; }
     }
 }

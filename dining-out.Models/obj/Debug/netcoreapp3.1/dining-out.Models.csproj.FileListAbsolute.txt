@@ -1,4 +1,6 @@
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.Models/bin/Debug/netcoreapp3.1/dining-out.Models.deps.json
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.Models/bin/Debug/netcoreapp3.1/dining-out.Models.runtimeconfig.json
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.Models/bin/Debug/netcoreapp3.1/dining-out.Models.runtimeconfig.dev.json
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.Models/bin/Debug/netcoreapp3.1/dining-out.Models.dll
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.Models/bin/Debug/netcoreapp3.1/dining-out.Models.pdb
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.Models/obj/Debug/netcoreapp3.1/dining-out.Models.csprojAssemblyReference.cache
@@ -7,6 +9,4 @@
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.Models/obj/Debug/netcoreapp3.1/dining-out.Models.csproj.CoreCompileInputs.cache
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.Models/obj/Debug/netcoreapp3.1/dining-out.Models.dll
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.Models/obj/Debug/netcoreapp3.1/dining-out.Models.pdb
-/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.Models/bin/Debug/netcoreapp3.1/dining-out.Models.runtimeconfig.json
-/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.Models/bin/Debug/netcoreapp3.1/dining-out.Models.runtimeconfig.dev.json
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out.Models/obj/Debug/netcoreapp3.1/dining-out.Models.genruntimeconfig.cache

@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using dining_out.Models.ViewModels;
@@ -30,10 +27,17 @@ namespace dining_out.Controllers
             StaticDataManagerUtility.sehirleriDoldur(this);
             StaticDataManagerUtility.IlceleriDoldur(this,"34");
             RestaurantVM sample = new RestaurantVM();
-            sample.CityId = "34";
-            sample.DistrictId = "01";
-            sample.Capacity = 40;
+            
+            defaultSabitDegerleriEkle(sample);
+            
             return View(sample);
+        }
+
+        private void defaultSabitDegerleriEkle(RestaurantVM restaurantVM)
+        {
+            restaurantVM.CityId = "34";
+            restaurantVM.DistrictId = "01";
+            restaurantVM.Capacity = 40;
         }
 
         [HttpPost]

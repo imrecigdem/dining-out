@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wn132D1cj6fGtN1eUcrguqETQV8XSlewke87DX4zdAtbgLlSGsMmhynlL2wkwO6Fg+c9P4UeDt6bT2NjH5Mb/A==",
+  "dgSpecHash": "ZqJDLzUSrcD7oPIJr6Mbsqlus/6pRw7e1fE4E/u5kJCF1jxwIaK2DRn0So12Jwat/vfQhECCkMm9inSGZpPdYw==",
   "success": true,
   "projectFilePath": "/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/dining-out.WebUI.csproj",
   "expectedPackageFiles": [
@@ -88,6 +88,7 @@
     "/Users/cetin/.nuget/packages/microsoft.extensions.options/5.0.0/microsoft.extensions.options.5.0.0.nupkg.sha512",
     "/Users/cetin/.nuget/packages/microsoft.extensions.primitives/5.0.0/microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "/Users/cetin/.nuget/packages/microsoft.extensions.webencoders/2.2.0/microsoft.extensions.webencoders.2.2.0.nupkg.sha512",
+    "/Users/cetin/.nuget/packages/microsoft.jquery.unobtrusive.ajax/3.2.6/microsoft.jquery.unobtrusive.ajax.3.2.6.nupkg.sha512",
     "/Users/cetin/.nuget/packages/microsoft.net.http.headers/2.2.0/microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "/Users/cetin/.nuget/packages/microsoft.netcore.platforms/3.1.0/microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "/Users/cetin/.nuget/packages/microsoft.netcore.targets/1.1.0/microsoft.netcore.targets.1.1.0.nupkg.sha512",
