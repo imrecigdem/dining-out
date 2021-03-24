@@ -66,7 +66,7 @@ namespace dining_out.Controllers
         }
 
         [HttpPost]
-        public IActionResult MenuItemEkle(int restaurantId,MenuVm menuVm)
+        public IActionResult MenuItemEkle(int restaurantId, int Id,MenuVm menuVm)
         {
             diningoutContext _context = new diningoutContext();
             Restaurant restaurant = _context.Restaurants.Where(res => res.Id.Equals(restaurantId)).Single();
@@ -90,7 +90,7 @@ namespace dining_out.Controllers
             menuVm.MenuItemsDictionary = new Dictionary<string, List<MenuItemVM>>();
             foreach (MenuItemVM item in menuVm.MenuItems)
             {
-                if (menuVm.MenuItemsDictionary.ContainsKey(item.Category.CategoryName) )
+                if (menuVm.MenuItemsDictionary.ContainsKey(item.Category.CategoryName))
                 {
                     menuVm.MenuItemsDictionary[item.Category.CategoryName].Add(item);
                 }
