@@ -20,6 +20,8 @@ namespace dining_out.Utility
             restaurantVM.Address = restaurant.Address;
             restaurantVM.Capacity = restaurant.Capacity;
             restaurantVM.City = restaurant.City;
+            restaurantVM.CoverImg = restaurant.CoverImg;
+            restaurantVM.Logo = restaurant.Logo;
             restaurantVM.Desc = restaurant.Desc;
             restaurantVM.District = restaurant.District;
             restaurantVM.Id = restaurant.Id;
@@ -27,7 +29,7 @@ namespace dining_out.Utility
             restaurantVM.SystemDefinitionName = restaurant.SystemDefinitionName;
             restaurantVM.UserId = restaurant.UserId;
 
-            List<BookTableRezervation> bookTableRezervations = restaurant.BookTableRezervations.ToList();
+            List<BookTableRezervation> bookTableRezervations = restaurant.BookTableRezervations.OrderBy(book => book.RezervationCreatedDatetime).ToList();
             int newBookings = 0, approvedBookings = 0, closedBookings = 0;
             foreach (BookTableRezervation bookTableRezervation in bookTableRezervations)
             {
@@ -48,6 +50,18 @@ namespace dining_out.Utility
             restaurantVM.ApprovedBookingCount = approvedBookings;
             restaurantVM.ClosedBookingCount = closedBookings;
             restaurantVM.Menu = convertModel(restaurant.Menus);
+
+            if (bookTableRezervations != null && bookTableRezervations.Count > 0)
+            {
+                DateTime rezervationCreatedDatetime = bookTableRezervations[0].RezervationCreatedDatetime;
+                TimeSpan difference = DateTime.Now - rezervationCreatedDatetime;
+                restaurantVM.LastRezervationText = "Son rezervasyon " + difference.TotalMinutes + " dakika önce";
+            }
+            else
+            {
+                restaurantVM.LastRezervationText = "Henüz rezervasyon alınmamış.";
+            }
+
             return restaurantVM;
         }
 
@@ -85,6 +99,51 @@ namespace dining_out.Utility
             }
             return null;
 
+        }
+
+        public static BookTableRezervationVM convertModel(BookTableRezervation bookTableRezervation)
+        {
+            BookTableRezervationVM rezervationVM = new BookTableRezervationVM();
+            rezervationVM.AttendeeNumber = bookTableRezervation.AttendeeNumber;
+            rezervationVM.Description = bookTableRezervation.Description;
+            rezervationVM.Email = bookTableRezervation.Email;
+            rezervationVM.Id = bookTableRezervation.Id;
+            rezervationVM.NameLastname = bookTableRezervation.NameLastname;
+            rezervationVM.PhoneNumber = bookTableRezervation.PhoneNumber;
+            rezervationVM.RestaurantName = bookTableRezervation.Restaurant.Name;
+            rezervationVM.RezervationCreatedDatetime = bookTableRezervation.RezervationCreatedDatetime;
+            rezervationVM.RezervationDate = bookTableRezervation.RezervationDate.Date.ToShortDateString();
+            rezervationVM.RezervationTime = bookTableRezervation.RezervationTime.ToString(@"hh\:mm");
+            rezervationVM.RezervationStatus = ConstantUtility.textValueOfRezervationStatus(bookTableRezervation.RezervationStatus);
+            rezervationVM.RezervationDbStatus = bookTableRezervation.RezervationStatus;
+            rezervationVM.RezervationUserName = bookTableRezervation.RezervationUser.Name + " " + bookTableRezervation.RezervationUser.Surname;
+            if(bookTableRezervation.BookTableAttendees!=null && bookTableRezervation.BookTableAttendees.Count > 0)
+            {
+                List<UserVM> attendees = new List<UserVM>();
+                foreach (BookTableAttendee bookTableAttendee in bookTableRezervation.BookTableAttendees)
+                {
+                    if (bookTableAttendee.User != null)
+                    {
+                        UserVM userVM = convertModel(bookTableAttendee.User);
+                        attendees.Add(userVM);
+                    }
+                }
+                rezervationVM.Attendees = attendees;
+            }
+
+            return rezervationVM;
+        }
+
+        public static UserVM convertModel(User user)
+        {
+            UserVM userVM = new UserVM();
+            userVM.Description = user.Description;
+            userVM.Id = user.Id;
+            userVM.Name = user.Name;
+            userVM.Surname = user.Surname;
+            userVM.UserName = user.UserName;
+            userVM.UserType = user.UserType;
+            return userVM;
         }
 
         public static string GetUniqueFileName(string fileName)

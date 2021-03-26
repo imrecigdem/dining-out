@@ -1,9 +1,8 @@
 ﻿<Properties StartupConfiguration="{0252D707-0A96-4566-B9A9-6E538BE5BD24}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="dining-out/Views/DashboardRestaurantMenuDuzenle/_AllMenuItems.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="dining-out/Views/DashboardMasaRezervasyon/Index.cshtml">
     <Files>
-      <File FileName="dining-out/Views/DashboardRestaurantMenuDuzenle/Index.cshtml" Line="15" Column="39" IsPinned="True" />
-      <File FileName="dining-out/Views/DashboardRestaurantMenuDuzenle/_AllMenuItems.cshtml" Line="98" Column="1" />
-      <File FileName="dining-out/Controllers/DashboardRestaurantMenuDuzenleController.cs" Line="33" Column="18" />
+      <File FileName="dining-out/Controllers/DashboardMasaRezervasyonController.cs" Line="67" Column="54" />
+      <File FileName="dining-out/Views/DashboardMasaRezervasyon/Index.cshtml" Line="132" Column="30" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,14 +11,18 @@
             <Node name="dining-out.Models" expanded="True">
               <Node name="ViewModels" expanded="True" />
             </Node>
+            <Node name="dining-out.Utility" expanded="True" />
             <Node name="dining-out.WebUI" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Utility" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="DashboardRestaurantMenuDuzenle" expanded="True">
-                  <Node name="_AllMenuItems.cshtml" selected="True" />
+                <Node name="DashboardMasaRezervasyon" expanded="True">
+                  <Node name="Index.cshtml" selected="True" />
                 </Node>
+                <Node name="DashboardRestaurantMenuDuzenle" expanded="True" />
+                <Node name="MasaRezervasyon" expanded="True" />
               </Node>
+              <Node name="wwwroot" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -31,8 +34,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/Controllers/DashboardRestaurantMenuDuzenleController.cs" relfile="dining-out/Controllers/DashboardRestaurantMenuDuzenleController.cs" line="29" column="1" />
-      <Breakpoint file="/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/Controllers/DashboardRestaurantMenuDuzenleController.cs" relfile="dining-out/Controllers/DashboardRestaurantMenuDuzenleController.cs" line="65" column="1" />
+      <Breakpoint file="/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/Controllers/DashboardRestaurantMenuDuzenleController.cs" relfile="dining-out/Controllers/DashboardRestaurantMenuDuzenleController.cs" line="71" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

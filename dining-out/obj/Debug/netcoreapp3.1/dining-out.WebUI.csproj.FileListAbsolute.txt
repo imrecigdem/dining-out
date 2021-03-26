@@ -95,3 +95,4 @@
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/obj/Debug/netcoreapp3.1/dining-out.Views.pdb
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/obj/Debug/netcoreapp3.1/dining-out.WebUI.csproj.CopyComplete
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/obj/Debug/netcoreapp3.1/dining-out.WebUI.genruntimeconfig.cache
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/obj/Debug/netcoreapp3.1/Razor/Views/DashboardMasaRezervasyon/Index.cshtml.g.cs

@@ -46,19 +46,7 @@ namespace dining_out.Controllers
 
             foreach (BookTableRezervation bookTableRezervation in bookTableRezervations)
             {
-                BookTableRezervationVM rezervationVM = new BookTableRezervationVM();
-                rezervationVM.AttendeeNumber = bookTableRezervation.AttendeeNumber;
-                rezervationVM.Description = bookTableRezervation.Description;
-                rezervationVM.Email = bookTableRezervation.Email;
-                rezervationVM.Id = bookTableRezervation.Id;
-                rezervationVM.NameLastname = bookTableRezervation.NameLastname;
-                rezervationVM.PhoneNumber = bookTableRezervation.PhoneNumber;
-                rezervationVM.RestaurantName = bookTableRezervation.Restaurant.Name;
-                rezervationVM.RezervationCreatedDatetime = bookTableRezervation.RezervationCreatedDatetime;
-                rezervationVM.RezervationDate = bookTableRezervation.RezervationDate.Date.ToShortDateString();
-                rezervationVM.RezervationTime = bookTableRezervation.RezervationTime.ToString(@"hh\:mm");
-                rezervationVM.RezervationStatus = ConstantUtility.textValueOfRezervationStatus(bookTableRezervation.RezervationStatus);
-                rezervationVM.RezervationUserName = bookTableRezervation.RezervationUser.Name+" "+bookTableRezervation.RezervationUser.Surname;
+                BookTableRezervationVM rezervationVM = Converters.convertModel(bookTableRezervation);
 
                 if (ConstantUtility.RezervationStatus.NEW.ToString().Equals(bookTableRezervation.RezervationStatus))
                 {

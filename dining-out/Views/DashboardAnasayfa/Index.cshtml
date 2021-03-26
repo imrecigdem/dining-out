@@ -41,16 +41,22 @@
 
                             @foreach (var rezervationVM in Model.BookTableNewRezervations)
                             {
-                                <tr>
-                                    <td>@rezervationVM.Id</td>
-                                    <td>@rezervationVM.RezervationDate - @rezervationVM.RezervationTime</td>
-                                    <td>@rezervationVM.NameLastname</td>
-                                    <td>@rezervationVM.RezervationStatus</td>
-                                    <td>@rezervationVM.RestaurantName</td>
-                                    <td>@rezervationVM.PhoneNumber</td>
-                                    <td>@rezervationVM.Email</td>
-                                    <td><i class="bi bi-arrow-right-circle-fill" style="font-size: 2rem; color: cornflowerblue;"></i></td>
-                                </tr>
+                            <tr>
+                                <td>@rezervationVM.Id</td>
+                                <td>@rezervationVM.RezervationDate - @rezervationVM.RezervationTime</td>
+                                <td>@rezervationVM.NameLastname</td>
+                                <td>@rezervationVM.RezervationStatus</td>
+                                <td>@rezervationVM.RestaurantName</td>
+                                <td>@rezervationVM.PhoneNumber</td>
+                                <td>@rezervationVM.Email</td>
+                                <td>
+                                    <a asp-controller="DashboardMasaRezervasyon"
+                                       asp-action="Index"
+                                       asp-route-masaRezervationId="@rezervationVM.Id">
+                                        <i class="bi bi-arrow-right-circle-fill" style="font-size: 2rem; color: cornflowerblue;"></i>
+                                    </a>
+                                </td>
+                            </tr>
                             }
                         </tbody>
                     </table>
@@ -89,7 +95,13 @@
                                     <td>@rezervationVM.RestaurantName</td>
                                     <td>@rezervationVM.PhoneNumber</td>
                                     <td>@rezervationVM.Email</td>
-                                    <td><i class="bi bi-arrow-right-circle-fill" style="font-size: 2rem; color: cornflowerblue;"></i></td>
+                                    <td>
+                                        <a asp-controller="DashboardMasaRezervasyon"
+                                           asp-action="Index"
+                                           asp-route-masaRezervationId="@rezervationVM.Id">
+                                            <i class="bi bi-arrow-right-circle-fill" style="font-size: 2rem; color: cornflowerblue;"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                             }
                         </tbody>
@@ -123,16 +135,22 @@
 
                                 @foreach (var rezervationVM in Model.BookTableClosedRezervations)
                                 {
-                                    <tr>
-                                        <td>@rezervationVM.Id</td>
-                                        <td>@rezervationVM.RezervationDate - @rezervationVM.RezervationTime</td>
-                                        <td>@rezervationVM.NameLastname</td>
-                                        <td>@rezervationVM.RezervationStatus</td>
-                                        <td>@rezervationVM.RestaurantName</td>
-                                        <td>@rezervationVM.PhoneNumber</td>
-                                        <td>@rezervationVM.Email</td>
-                                        <td><i class="bi bi-arrow-right-circle-fill" style="font-size: 2rem; color: cornflowerblue;"></i></td>
-                                    </tr>
+                                <tr>
+                                    <td>@rezervationVM.Id</td>
+                                    <td>@rezervationVM.RezervationDate - @rezervationVM.RezervationTime</td>
+                                    <td>@rezervationVM.NameLastname</td>
+                                    <td>@rezervationVM.RezervationStatus</td>
+                                    <td>@rezervationVM.RestaurantName</td>
+                                    <td>@rezervationVM.PhoneNumber</td>
+                                    <td>@rezervationVM.Email</td>
+                                    <td>
+                                        <a asp-controller="DashboardMasaRezervasyon"
+                                           asp-action="Index"
+                                           asp-route-masaRezervationId="@rezervationVM.Id">
+                                            <i class="bi bi-arrow-right-circle-fill" style="font-size: 2rem; color: cornflowerblue;"></i>
+                                        </a>
+                                    </td>
+                                </tr>
                                 }
                             </tbody>
                         </table>
