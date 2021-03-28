@@ -9,6 +9,7 @@ namespace dining_out.Models.DbModels
     {
         public Restaurant()
         {
+            BookTableOrderedItems = new HashSet<BookTableOrderedItem>();
             BookTableRezervations = new HashSet<BookTableRezervation>();
             Menus = new HashSet<Menu>();
         }
@@ -28,6 +29,7 @@ namespace dining_out.Models.DbModels
         public string CoverImg { get; set; }
 
         public virtual User User { get; set; }
+        public virtual ICollection<BookTableOrderedItem> BookTableOrderedItems { get; set; }
         public virtual ICollection<BookTableRezervation> BookTableRezervations { get; set; }
         public virtual ICollection<Menu> Menus { get; set; }
     }

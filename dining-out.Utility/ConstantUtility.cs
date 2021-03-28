@@ -74,5 +74,33 @@ namespace dining_out.Utility
         {
             CUSTOMER, RESTAURANT
         }
+
+        public enum OrderedItemStatus
+        {
+            NEW,SERVICED,CANCELLED, PURCHASED
+        }
+
+
+        public static string textValueOfOrderedItemStatus(string orderedItemStatus)
+        {
+            if (OrderedItemStatus.NEW.ToString().Equals(orderedItemStatus))
+            {
+                return "Yeni Sipariş";
+            }
+            if (OrderedItemStatus.SERVICED.ToString().Equals(orderedItemStatus))
+            {
+                return "Servis Edildi";
+            }
+            if (OrderedItemStatus.CANCELLED.ToString().Equals(orderedItemStatus))
+            {
+                return "İptal Edildi";
+            }
+            if (OrderedItemStatus.PURCHASED.ToString().Equals(orderedItemStatus))
+            {
+                return "Ödendi";
+            }
+            return "";
+
+        }
     }
 }

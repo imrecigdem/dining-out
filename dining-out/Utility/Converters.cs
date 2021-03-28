@@ -146,6 +146,21 @@ namespace dining_out.Utility
             return userVM;
         }
 
+        public static BookTableOrderedItemVM convertModel(BookTableOrderedItem bookTableOrderedItem)
+        {
+            BookTableOrderedItemVM bookTableOrderedItemVM = new BookTableOrderedItemVM();
+            bookTableOrderedItemVM.Id = bookTableOrderedItem.Id;
+            bookTableOrderedItemVM.MenuItemId = bookTableOrderedItem.MenuItemId;
+            bookTableOrderedItemVM.MenuItemName = bookTableOrderedItem.MenuItem.MenuItemName;
+            bookTableOrderedItemVM.OrderedDate = String.Format("{0:g}", bookTableOrderedItem.OrderedDate);
+            bookTableOrderedItemVM.Price = bookTableOrderedItem.MenuItem.Price;
+            bookTableOrderedItemVM.RezervationId = bookTableOrderedItem.RezervationId;
+            bookTableOrderedItemVM.Status = bookTableOrderedItem.Status;
+            bookTableOrderedItemVM.StatusText = ConstantUtility.textValueOfOrderedItemStatus(bookTableOrderedItem.Status);
+            bookTableOrderedItemVM.UserName = bookTableOrderedItem.User.UserName;
+            return bookTableOrderedItemVM;
+        }
+
         public static string GetUniqueFileName(string fileName)
         {
             fileName = Path.GetFileName(fileName);

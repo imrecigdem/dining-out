@@ -18,6 +18,7 @@ namespace dining_out.Models.DbModels
         }
 
         public virtual DbSet<BookTableAttendee> BookTableAttendees { get; set; }
+        public virtual DbSet<BookTableOrderedItem> BookTableOrderedItems { get; set; }
         public virtual DbSet<BookTableRezervation> BookTableRezervations { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<MenuItem> MenuItems { get; set; }
@@ -59,6 +60,66 @@ namespace dining_out.Models.DbModels
                     .WithMany(p => p.BookTableAttendees)
                     .HasForeignKey(d => d.UserId)
                     .HasConstraintName("BookTableAttendee_User_id_fk");
+            });
+
+            modelBuilder.Entity<BookTableOrderedItem>(entity =>
+            {
+                entity.ToTable("BookTableOrderedItem");
+
+                entity.HasIndex(e => e.RezervationId, "BookTableOrderedItem_BookTableRezervation_id_fk");
+
+                entity.HasIndex(e => e.MenuItemId, "BookTableOrderedItem_MenuItem_id_fk");
+
+                entity.HasIndex(e => e.MenuId, "BookTableOrderedItem_Menu_id_fk");
+
+                entity.HasIndex(e => e.RestaurantId, "BookTableOrderedItem_Restaurant_id_fk");
+
+                entity.HasIndex(e => e.UserId, "BookTableOrderedItem_User_id_fk");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.MenuId).HasColumnName("menu_id");
+
+                entity.Property(e => e.MenuItemId).HasColumnName("menu_item_id");
+
+                entity.Property(e => e.OrderedDate)
+                    .HasColumnType("date")
+                    .HasColumnName("ordered_date");
+
+                entity.Property(e => e.RestaurantId).HasColumnName("restaurant_id");
+
+                entity.Property(e => e.RezervationId).HasColumnName("rezervation_id");
+
+                entity.Property(e => e.Status)
+                    .HasMaxLength(100)
+                    .HasColumnName("status");
+
+                entity.Property(e => e.UserId).HasColumnName("user_id");
+
+                entity.HasOne(d => d.Menu)
+                    .WithMany(p => p.BookTableOrderedItems)
+                    .HasForeignKey(d => d.MenuId)
+                    .HasConstraintName("BookTableOrderedItem_Menu_id_fk");
+
+                entity.HasOne(d => d.MenuItem)
+                    .WithMany(p => p.BookTableOrderedItems)
+                    .HasForeignKey(d => d.MenuItemId)
+                    .HasConstraintName("BookTableOrderedItem_MenuItem_id_fk");
+
+                entity.HasOne(d => d.Restaurant)
+                    .WithMany(p => p.BookTableOrderedItems)
+                    .HasForeignKey(d => d.RestaurantId)
+                    .HasConstraintName("BookTableOrderedItem_Restaurant_id_fk");
+
+                entity.HasOne(d => d.Rezervation)
+                    .WithMany(p => p.BookTableOrderedItems)
+                    .HasForeignKey(d => d.RezervationId)
+                    .HasConstraintName("BookTableOrderedItem_BookTableRezervation_id_fk");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.BookTableOrderedItems)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("BookTableOrderedItem_User_id_fk");
             });
 
             modelBuilder.Entity<BookTableRezervation>(entity =>
