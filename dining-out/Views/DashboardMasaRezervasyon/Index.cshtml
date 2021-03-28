@@ -55,9 +55,9 @@
 <div class="shadow p-3 mb-5 bg-white rounded">
 
     <div class="form-row">
-        <div class="col-lg-2 ">
+        <div class="col-lg-1 ">
         </div>
-        <div class="col-lg-8 form-group">
+        <div class="col-lg-10 form-group">
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><h4 class="text-primary">Restaurant Detayı</h4></div>
                 <div class="panel-body">
@@ -78,14 +78,14 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-1">
         </div>
     </div>
 
     <div class="form-row">
-        <div class="col-lg-2 ">
+        <div class="col-lg-1 ">
         </div>
-        <div class="col-lg-8 form-group">
+        <div class="col-lg-10 form-group">
             <div class="panel panel-default">
                 <div class="panel-heading text-center"><h4 class="text-primary">Rezervasyon Detayı</h4></div>
                 <div class="panel-body">
@@ -138,7 +138,7 @@
                                         <div class="col-md-6">
                                             @if ("CANCELLED".Equals(Model.rezervationVM.RezervationDbStatus) || "CLOSED".Equals(Model.rezervationVM.RezervationDbStatus))
                                             {
-                                                <button type="submit" name="masaRezervasyonKisiEkle" value="masaRezervasyonKisiEkle" class="btn btn-primary disabled" aria-disabled="true">Ekle</button>
+                                                <button type="submit" name="masaRezervasyonKisiEkle" value="masaRezervasyonKisiEkle" class="btn btn-primary disabled" aria-disabled="true" disabled="true">Ekle</button>
                                             }
                                             else
                                             {
@@ -164,14 +164,14 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-1">
         </div>
     </div>
     <form method="post" asp-route-masaRezervationId="@Model.rezervationVM.Id" asp-action="OdemeAl" asp-controller="DashboardMasaRezervasyon">
         <div class="form-row">
-            <div class="col-lg-2 ">
+            <div class="col-lg-1 ">
             </div>
-            <div class="col-lg-8 form-group">
+            <div class="col-lg-10 form-group">
                 <div class="panel panel-default">
                     <div class="panel-heading text-center"><h4 class="text-primary">Sipariş Detayları</h4></div>
                     <div class="panel-body">
@@ -227,7 +227,14 @@
                                                                 <select class="form-select" name="odemeYapan_@orderedItemVM.Id">
                                                                     @foreach (var attendee in Model.rezervationVM.Attendees)
                                                                     {
-                                                                        <option value="@attendee.UserName">@attendee.UserName</option>
+                                                                        if (orderedItemVM.PurchasedUserName.Equals(attendee.UserName))
+                                                                        {
+                                                                            <option value="@attendee.UserName" selected>@attendee.UserName</option>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <option value="@attendee.UserName">@attendee.UserName</option>
+                                                                        }
                                                                     }
                                                                 </select>
                                                             }
@@ -236,7 +243,14 @@
                                                                 <select class="form-select disabled" name="odemeYapan_@orderedItemVM.Id" disabled>
                                                                     @foreach (var attendee in Model.rezervationVM.Attendees)
                                                                     {
-                                                                        <option value="@attendee.UserName">@attendee.UserName</option>
+                                                                        if (orderedItemVM.PurchasedUserName.Equals(attendee.UserName))
+                                                                        {
+                                                                            <option value="@attendee.UserName" selected>@attendee.UserName</option>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            <option value="@attendee.UserName">@attendee.UserName</option>
+                                                                        }
                                                                     }
                                                                 </select>
                                                             }
@@ -260,11 +274,15 @@
                                             <div class="col-md-2">
                                                 @if ("CANCELLED".Equals(Model.rezervationVM.RezervationDbStatus) || "CLOSED".Equals(Model.rezervationVM.RezervationDbStatus))
                                                 {
-                                                    <button type="submit" name="masaRezervasyonOde" value="masaRezervasyonOde" class="btn btn-primary disabled" aria-disabled="true">Öde</button>
+                                                    <button type="submit" disabled="true" name="masaRezervasyonOde" value="masaRezervasyonOde" class="btn btn-primary disabled" aria-disabled="true">Öde</button>
                                                 }
-                                                else
+                                                else if(Model.OdenecekSiparisVarmi())
                                                 {
                                                     <button type="submit" name="masaRezervasyonOde" value="masaRezervasyonOde" class="btn btn-primary">Öde</button>
+                                                }
+                                                else 
+                                                {
+                                                    <button type="submit" disabled="true" name="masaRezervasyonOde" value="masaRezervasyonOde" class="btn btn-primary disabled" aria-disabled="true">Öde</button>
                                                 }
                                             </div>
                                         </div>
@@ -286,7 +304,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-1">
             </div>
         </div>
     </form>

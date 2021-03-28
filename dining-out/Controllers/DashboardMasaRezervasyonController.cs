@@ -186,6 +186,35 @@ namespace dining_out.Controllers
                 return View("OdemeAl", odemeAlVM);
             }
 
+            diningoutContext dbContext = new diningoutContext();
+            foreach (BookTableOrderedItemVM bookTableOrderedItemVM in odemeAlVM.BookTableOrderedItemsVM)
+            {
+                MenuItem menuItem = dbContext.MenuItems.Where(menuItem => menuItem.Id.Equals(bookTableOrderedItemVM.MenuItemId)).FirstOrDefault();
+                User purchasedUser = dbContext.Users.Where(user => user.UserName.Equals(bookTableOrderedItemVM.PurchasedUserName)).FirstOrDefault();
+                BookTableOrderedItem bookTableOrderedItem = dbContext.BookTableOrderedItems.Where(orderedItem => orderedItem.Id.Equals(bookTableOrderedItemVM.Id)).FirstOrDefault();
+
+                BookTablePaymentTransaction transaction = new BookTablePaymentTransaction();
+                transaction.MenuId = menuItem.MenuId;
+                transaction.MenuOrderedItemId = bookTableOrderedItemVM.Id;
+                transaction.PayerUserId = purchasedUser.Id;
+                transaction.PaymentDate = DateTime.Now;
+                transaction.Price = odemeAlVM.Toplam/ odemeAlVM.BookTableOrderedItemsVM.Count;
+                transaction.RezervationId = odemeAlVM.MasaRezervationId;
+                transaction.CardHolder = odemeAlVM.CartHolder;
+                transaction.CardNumber = odemeAlVM.CartNumber;
+                transaction.CardSecurityNumber = odemeAlVM.CardSecurityNumber;
+                transaction.CardValidDate = odemeAlVM.CardValidDate;
+                transaction.CartType = odemeAlVM.CartType;
+                dbContext.BookTablePaymentTransactions.Add(transaction);
+                dbContext.SaveChanges();
+
+                bookTableOrderedItem.Status = ConstantUtility.OrderedItemStatus.PURCHASED.ToString();
+                dbContext.BookTableOrderedItems.Update(bookTableOrderedItem);
+                dbContext.SaveChanges();
+            }
+
+            ViewBag.BasariliOdeme = true;
+            ViewBag.Mesaj = "Ödeme işleminiz başarılı ile gerçekleşmiştir";
             return View("OdemeAl", odemeAlVM);
         }
 
@@ -261,6 +290,11 @@ namespace dining_out.Controllers
                 {
                     totalOrderedPriceByUser = totalOrderedPriceByUser + bookTableOrderedItem.MenuItem.Price;
                 }
+                if (ConstantUtility.OrderedItemStatus.PURCHASED.ToString().Equals(bookTableOrderedItemVM.Status))
+                {
+                    BookTablePaymentTransaction bookTablePaymentTransaction = dbContext.BookTablePaymentTransactions.Where(payment => payment.MenuOrderedItemId.Equals(bookTableOrderedItemVM.Id)).SingleOrDefault();
+                    bookTableOrderedItemVM.PurchasedUserName=bookTablePaymentTransaction.PayerUser.UserName;
+                }
             }
             
             DashboardMasaRezervasyonVM dashboardMasaRezervasyonVM = new DashboardMasaRezervasyonVM();
@@ -269,6 +303,7 @@ namespace dining_out.Controllers
             dashboardMasaRezervasyonVM.user = Converters.convertModel(user);
             dashboardMasaRezervasyonVM.orderedItemsVM = bookTableOrderedItemsVM;
             dashboardMasaRezervasyonVM.TotalOrderedPriceByUser = totalOrderedPriceByUser;
+
             return dashboardMasaRezervasyonVM;
         }
 

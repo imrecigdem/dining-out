@@ -15,5 +15,17 @@ namespace dining_out.Models.ViewModels
         public List<BookTableOrderedItemVM> orderedItemsVM { get; set; }
         public decimal TotalOrderedPriceByUser { get; set; }
         public string EklenenecekKullaniciIsmi { get; set; }
+
+        public bool OdenecekSiparisVarmi()
+        {
+            foreach(BookTableOrderedItemVM item in orderedItemsVM)
+            {
+                if ("SERVICED".Equals(item.Status))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

@@ -11,6 +11,7 @@ namespace dining_out.Models.DbModels
         {
             BookTableAttendees = new HashSet<BookTableAttendee>();
             BookTableOrderedItems = new HashSet<BookTableOrderedItem>();
+            BookTablePaymentTransactions = new HashSet<BookTablePaymentTransaction>();
         }
 
         public int Id { get; set; }
@@ -30,5 +31,6 @@ namespace dining_out.Models.DbModels
         public virtual User RezervationUser { get; set; }
         public virtual ICollection<BookTableAttendee> BookTableAttendees { get; set; }
         public virtual ICollection<BookTableOrderedItem> BookTableOrderedItems { get; set; }
+        public virtual ICollection<BookTablePaymentTransaction> BookTablePaymentTransactions { get; set; }
     }
 }

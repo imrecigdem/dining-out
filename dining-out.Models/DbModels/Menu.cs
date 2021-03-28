@@ -10,6 +10,7 @@ namespace dining_out.Models.DbModels
         public Menu()
         {
             BookTableOrderedItems = new HashSet<BookTableOrderedItem>();
+            BookTablePaymentTransactions = new HashSet<BookTablePaymentTransaction>();
             MenuItems = new HashSet<MenuItem>();
         }
 
@@ -21,6 +22,7 @@ namespace dining_out.Models.DbModels
 
         public virtual Restaurant Restaurant { get; set; }
         public virtual ICollection<BookTableOrderedItem> BookTableOrderedItems { get; set; }
+        public virtual ICollection<BookTablePaymentTransaction> BookTablePaymentTransactions { get; set; }
         public virtual ICollection<MenuItem> MenuItems { get; set; }
     }
 }

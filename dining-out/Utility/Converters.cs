@@ -158,6 +158,7 @@ namespace dining_out.Utility
             bookTableOrderedItemVM.Status = bookTableOrderedItem.Status;
             bookTableOrderedItemVM.StatusText = ConstantUtility.textValueOfOrderedItemStatus(bookTableOrderedItem.Status);
             bookTableOrderedItemVM.UserName = bookTableOrderedItem.User.UserName;
+            bookTableOrderedItemVM.PurchasedUserName = bookTableOrderedItem.User.UserName;
             return bookTableOrderedItemVM;
         }
 

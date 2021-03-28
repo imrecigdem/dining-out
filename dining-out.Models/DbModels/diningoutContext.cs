@@ -19,6 +19,7 @@ namespace dining_out.Models.DbModels
 
         public virtual DbSet<BookTableAttendee> BookTableAttendees { get; set; }
         public virtual DbSet<BookTableOrderedItem> BookTableOrderedItems { get; set; }
+        public virtual DbSet<BookTablePaymentTransaction> BookTablePaymentTransactions { get; set; }
         public virtual DbSet<BookTableRezervation> BookTableRezervations { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<MenuItem> MenuItems { get; set; }
@@ -120,6 +121,77 @@ namespace dining_out.Models.DbModels
                     .WithMany(p => p.BookTableOrderedItems)
                     .HasForeignKey(d => d.UserId)
                     .HasConstraintName("BookTableOrderedItem_User_id_fk");
+            });
+
+            modelBuilder.Entity<BookTablePaymentTransaction>(entity =>
+            {
+                entity.ToTable("BookTablePaymentTransaction");
+
+                entity.HasIndex(e => e.MenuOrderedItemId, "BookTablePaymentTransaction_BookTableOrderedItem_id_fk");
+
+                entity.HasIndex(e => e.RezervationId, "BookTablePaymentTransaction_BookTableRezervation_id_fk");
+
+                entity.HasIndex(e => e.MenuId, "BookTablePaymentTransaction_Menu_id_fk");
+
+                entity.HasIndex(e => e.PayerUserId, "BookTablePaymentTransaction_User_id_fk");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.CardHolder)
+                    .HasMaxLength(200)
+                    .HasColumnName("card_holder");
+
+                entity.Property(e => e.CardNumber)
+                    .HasMaxLength(200)
+                    .HasColumnName("card_number");
+
+                entity.Property(e => e.CardSecurityNumber)
+                    .HasMaxLength(200)
+                    .HasColumnName("card_security_number");
+
+                entity.Property(e => e.CardValidDate)
+                    .HasMaxLength(200)
+                    .HasColumnName("card_valid_date");
+
+                entity.Property(e => e.CartType)
+                    .HasMaxLength(100)
+                    .HasColumnName("cart_type");
+
+                entity.Property(e => e.MenuId).HasColumnName("menu_id");
+
+                entity.Property(e => e.MenuOrderedItemId).HasColumnName("menu_ordered_item_id");
+
+                entity.Property(e => e.PayerUserId).HasColumnName("payer_user_id");
+
+                entity.Property(e => e.PaymentDate)
+                    .HasColumnType("date")
+                    .HasColumnName("payment_date");
+
+                entity.Property(e => e.Price)
+                    .HasColumnType("decimal(10,0)")
+                    .HasColumnName("price");
+
+                entity.Property(e => e.RezervationId).HasColumnName("rezervation_id");
+
+                entity.HasOne(d => d.Menu)
+                    .WithMany(p => p.BookTablePaymentTransactions)
+                    .HasForeignKey(d => d.MenuId)
+                    .HasConstraintName("BookTablePaymentTransaction_Menu_id_fk");
+
+                entity.HasOne(d => d.MenuOrderedItem)
+                    .WithMany(p => p.BookTablePaymentTransactions)
+                    .HasForeignKey(d => d.MenuOrderedItemId)
+                    .HasConstraintName("BookTablePaymentTransaction_BookTableOrderedItem_id_fk");
+
+                entity.HasOne(d => d.PayerUser)
+                    .WithMany(p => p.BookTablePaymentTransactions)
+                    .HasForeignKey(d => d.PayerUserId)
+                    .HasConstraintName("BookTablePaymentTransaction_User_id_fk");
+
+                entity.HasOne(d => d.Rezervation)
+                    .WithMany(p => p.BookTablePaymentTransactions)
+                    .HasForeignKey(d => d.RezervationId)
+                    .HasConstraintName("BookTablePaymentTransaction_BookTableRezervation_id_fk");
             });
 
             modelBuilder.Entity<BookTableRezervation>(entity =>

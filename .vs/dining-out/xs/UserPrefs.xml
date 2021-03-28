@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{0252D707-0A96-4566-B9A9-6E538BE5BD24}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="dining-out/Views/DashboardMasaRezervasyon/Index.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="dining-out/Controllers/DashboardMasaRezervasyonController.cs">
     <Files>
-      <File FileName="dining-out/Controllers/DashboardMasaRezervasyonController.cs" Line="149" Column="1" />
-      <File FileName="dining-out/Views/DashboardMasaRezervasyon/Index.cshtml" Line="265" Column="41" />
-      <File FileName="dining-out/Views/DashboardMasaRezervasyon/OdemeAl.cshtml" Line="59" Column="53" />
+      <File FileName="dining-out/Controllers/DashboardMasaRezervasyonController.cs" Line="287" Column="18" />
+      <File FileName="dining-out/Views/DashboardMasaRezervasyon/Index.cshtml" Line="206" Column="91" />
+      <File FileName="dining-out/Views/DashboardMasaRezervasyon/OdemeAl.cshtml" Line="122" Column="53" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,11 +14,12 @@
             </Node>
             <Node name="dining-out.Utility" expanded="True" />
             <Node name="dining-out.WebUI" expanded="True">
-              <Node name="Controllers" expanded="True" />
+              <Node name="Controllers" expanded="True">
+                <Node name="DashboardMasaRezervasyonController.cs" selected="True" />
+              </Node>
+              <Node name="Utility" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="DashboardMasaRezervasyon" expanded="True">
-                  <Node name="Index.cshtml" selected="True" />
-                </Node>
+                <Node name="DashboardMasaRezervasyon" expanded="True" />
               </Node>
             </Node>
           </Node>

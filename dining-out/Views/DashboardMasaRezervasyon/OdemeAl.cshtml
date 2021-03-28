@@ -127,7 +127,10 @@
                 {
                     <br />
                     <div class="alert alert-success" role="alert">
-                        @ViewBag.Mesaj
+                        @ViewBag.Mesaj - <a asp-controller="DashboardMasaRezervasyon"
+                                            asp-action="Index"
+                                            asp-route-masaRezervationId="@Model.MasaRezervationId">
+                                            Rezervasyon Sayfası için...</a>
                     </div>
                 }
             </div>
