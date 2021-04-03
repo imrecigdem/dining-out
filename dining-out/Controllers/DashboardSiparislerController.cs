@@ -54,6 +54,7 @@ namespace dining_out.Controllers
                 }
             }
 
+
             if (secilenSiparisler.Count <= 0)
             {
                 ViewBag.BasariliSiparisGuncelle = false;
