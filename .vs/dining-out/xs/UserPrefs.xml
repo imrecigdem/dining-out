@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{0252D707-0A96-4566-B9A9-6E538BE5BD24}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="dining-out/Controllers/DashboardMasaRezervasyonController.cs">
     <Files>
-      <File FileName="dining-out/Controllers/DashboardMasaRezervasyonController.cs" Line="287" Column="18" />
-      <File FileName="dining-out/Views/DashboardMasaRezervasyon/Index.cshtml" Line="206" Column="91" />
-      <File FileName="dining-out/Views/DashboardMasaRezervasyon/OdemeAl.cshtml" Line="122" Column="53" />
+      <File FileName="dining-out/Controllers/DashboardMasaRezervasyonController.cs" Line="387" Column="65" />
+      <File FileName="dining-out/Views/DashboardMasaRezervasyon/SiparisAl.cshtml" Line="107" Column="61" />
+      <File FileName="dining-out/Views/DashboardMasaRezervasyon/Index.cshtml" Line="205" Column="49" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

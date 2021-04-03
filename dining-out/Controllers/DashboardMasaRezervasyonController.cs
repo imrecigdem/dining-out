@@ -66,6 +66,11 @@ namespace dining_out.Controllers
         [HttpPost]
         public IActionResult OdemeAl(int masaRezervationId)
         {
+            if (Request.Form.Keys.Contains("masaRezervasyonSiparisEkle") && "masaRezervasyonSiparisEkle".Equals(Request.Form["masaRezervasyonSiparisEkle"].ToString()))
+            {
+                return siparisSayfasinaYonlendir(masaRezervationId);
+            }
+
             diningoutContext dbContext = new diningoutContext();
             List<KeyValueVM> odemeYapilacakSiparisler = new List<KeyValueVM>();
             List<KeyValueVM> secilenSiparisler = new List<KeyValueVM>();
@@ -218,6 +223,99 @@ namespace dining_out.Controllers
             return View("OdemeAl", odemeAlVM);
         }
 
+        public IActionResult siparisSayfasinaYonlendir(int masaRezervationId)
+        {
+            return View("SiparisAl", siparisAlSayfasiModel(masaRezervationId));
+        }
+
+        [HttpPost]
+        public IActionResult SiparisEkle(int masaRezervationId)
+        {
+            int userId = 1;
+            List<KeyValueVM> secilenMenuItems = new List<KeyValueVM>();
+            List<KeyValueVM> menuSecimiYapanlar = new List<KeyValueVM>();
+            if (Request.Form.Keys.Contains("masaRezervasyonSiparisVer"))
+            {
+                foreach (string key in Request.Form.Keys)
+                {
+                    if (key.Contains("secilenMenuItem"))
+                    {
+                        string[] splittedKey = key.Split("_");
+                        string secilenMenuItem = splittedKey[1];
+                        string secilenSiparisValue = Request.Form[key].ToString();
+                        if ("on".Equals(secilenSiparisValue))
+                        {
+                            KeyValueVM keyValueVM = new KeyValueVM(secilenMenuItem, secilenSiparisValue);
+                            secilenMenuItems.Add(keyValueVM);
+                        }
+                    }
+
+                    if (key.Contains("menuSecimiYapan"))
+                    {
+                        string[] splittedKey = key.Split("_");
+                        string secilenMenuItem = splittedKey[1];
+                        string secilenSiparisYapan = Request.Form[key].ToString();
+                        KeyValueVM keyValueVM = new KeyValueVM(secilenMenuItem, secilenSiparisYapan);
+                        menuSecimiYapanlar.Add(keyValueVM);
+                        
+                    }
+                }
+
+                if (secilenMenuItems.Count <= 0)
+                {
+                    ViewBag.BasariliSiparis = false;
+                    ViewBag.Mesaj = "Sipariş vermek için menüden bir şey seçmelisiniz";
+                    return View("SiparisAl", siparisAlSayfasiModel(masaRezervationId));
+                }
+
+                diningoutContext dbContext = new diningoutContext();
+                foreach (KeyValueVM menuItem in secilenMenuItems)
+                {
+                    foreach(KeyValueVM secimYapan in menuSecimiYapanlar)
+                    {
+                        if (menuItem.Key.Equals(secimYapan.Key)) {
+                            User user = dbContext.Users.Where(user => user.UserName.Equals(secimYapan.Value)).SingleOrDefault();
+                            MenuItem mItem = dbContext.MenuItems.Where(item => item.Id.ToString().Equals(menuItem.Key)).SingleOrDefault();
+                            BookTableOrderedItem bookTableOrderedItem = new BookTableOrderedItem();
+                            bookTableOrderedItem.MenuId = mItem.Menu.Id;
+                            bookTableOrderedItem.MenuItemId = mItem.Id;
+                            bookTableOrderedItem.OrderedDate = DateTime.Now;
+                            bookTableOrderedItem.RestaurantId = mItem.Menu.Restaurant.Id;
+                            bookTableOrderedItem.RezervationId = masaRezervationId;
+                            bookTableOrderedItem.Status = ConstantUtility.OrderedItemStatus.NEW.ToString();
+                            bookTableOrderedItem.UserId = user.Id ;
+                            dbContext.BookTableOrderedItems.Add(bookTableOrderedItem);
+                            dbContext.SaveChanges();
+                        }
+                    }
+                }
+                ViewBag.BasariliSiparis = true;
+                ViewBag.Mesaj = "Siparişleriniz alınmıştır. Ekstra sipariş verebilirsiniz.";
+            }
+
+            return View("SiparisAl", siparisAlSayfasiModel(masaRezervationId));
+        }
+
+        public SiparisAlVM siparisAlSayfasiModel(int masaRezervationId)
+        {
+            diningoutContext dbContext = new diningoutContext();
+            BookTableRezervation bookTableRezervation = dbContext.BookTableRezervations.Where(rez => rez.Id.Equals(masaRezervationId)).FirstOrDefault();
+            Restaurant restaurant = bookTableRezervation.Restaurant;
+            List<Menu> menus = restaurant.Menus.ToList();
+            List<MenuItem> menuItems = new List<MenuItem>();
+            if (menus != null && menus.Count > 0)
+            {
+                menuItems = menus[0].MenuItems.ToList();
+            }
+
+            SiparisAlVM siparisAlVM = new SiparisAlVM();
+            siparisAlVM.MasaRezervationId = masaRezervationId;
+            siparisAlVM.restaurantVM = Converters.convertModel(restaurant);
+            siparisAlVM.rezervationVM = Converters.convertModel(bookTableRezervation);
+            siparisAlVM.menuItemsVM = Converters.convertModel(menuItems);
+            return siparisAlVM;
+        }
+       
         [HttpPost]
         public IActionResult KisiEkle(int masaRezervationId)
         {

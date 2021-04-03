@@ -78,27 +78,58 @@ namespace dining_out.Utility
                 menuVM.Statu = menu.Statu;
                 if(menu.MenuItems!=null && menu.MenuItems.Count > 0)
                 {
-                    List<MenuItemVM> menuItemVMs = new List<MenuItemVM>();
-                    foreach(MenuItem menuItem in menu.MenuItems)
-                    {
-                        MenuItemCategoryVM menuItemCategoryVM = new MenuItemCategoryVM();
-                        menuItemCategoryVM.Id = menuItem.Category.Id;
-                        menuItemCategoryVM.CategoryName = menuItem.Category.CategoryName;
-                        MenuItemVM menuItemVM = new MenuItemVM();
-                        menuItemVM.Category = menuItemCategoryVM;
-                        menuItemVM.Id = menuItem.Id;
-                        menuItemVM.MenuItemDescription = menuItem.MenuItemDescription;
-                        menuItemVM.MenuItemIngredients = menuItem.MenuItemIngredients;
-                        menuItemVM.MenuItemName = menuItem.MenuItemName;
-                        menuItemVM.Price = menuItem.Price;
-                        menuItemVMs.Add(menuItemVM);
-                    }
-                    menuVM.MenuItems = menuItemVMs;
+                    menuVM.MenuItems = convertModel(menu.MenuItems.ToList());
                 }
                 return menuVM;
             }
             return null;
 
+        }
+
+        public static List<MenuItemVM> convertModel(List<MenuItem> menuItems)
+        {
+            if (menuItems != null && menuItems.Count > 0)
+            {
+                
+                Dictionary<string, List<MenuItem>> pairMenuItems = new Dictionary<string, List<MenuItem>>();
+                foreach (MenuItem menuItem in menuItems)
+                {
+                    if (pairMenuItems.ContainsKey(menuItem.Category.CategoryName))
+                    {
+                        pairMenuItems[menuItem.Category.CategoryName].Add(menuItem);
+                    }
+                    else
+                    {
+                        pairMenuItems[menuItem.Category.CategoryName] = new List<MenuItem>();
+                        pairMenuItems[menuItem.Category.CategoryName].Add(menuItem);
+                    }
+                }
+
+
+                List<MenuItem> tempMenuItems = new List<MenuItem>();
+                foreach (string key in pairMenuItems.Keys)
+                {
+                    tempMenuItems.AddRange(pairMenuItems[key]);
+                }
+
+                List<MenuItemVM> menuItemVMs = new List<MenuItemVM>();
+                foreach (MenuItem menuItem in tempMenuItems)
+                {
+                    MenuItemCategoryVM menuItemCategoryVM = new MenuItemCategoryVM();
+                    menuItemCategoryVM.Id = menuItem.Category.Id;
+                    menuItemCategoryVM.CategoryName = menuItem.Category.CategoryName;
+                    MenuItemVM menuItemVM = new MenuItemVM();
+                    menuItemVM.Category = menuItemCategoryVM;
+                    menuItemVM.Id = menuItem.Id;
+                    menuItemVM.MenuItemDescription = menuItem.MenuItemDescription;
+                    menuItemVM.MenuItemIngredients = menuItem.MenuItemIngredients;
+                    menuItemVM.MenuItemName = menuItem.MenuItemName;
+                    menuItemVM.Price = menuItem.Price;
+                    menuItemVMs.Add(menuItemVM);
+                }
+                return menuItemVMs;
+            }
+            return new List<MenuItemVM>();
         }
 
         public static BookTableRezervationVM convertModel(BookTableRezervation bookTableRezervation)
@@ -152,7 +183,7 @@ namespace dining_out.Utility
             bookTableOrderedItemVM.Id = bookTableOrderedItem.Id;
             bookTableOrderedItemVM.MenuItemId = bookTableOrderedItem.MenuItemId;
             bookTableOrderedItemVM.MenuItemName = bookTableOrderedItem.MenuItem.MenuItemName;
-            bookTableOrderedItemVM.OrderedDate = String.Format("{0:g}", bookTableOrderedItem.OrderedDate);
+            bookTableOrderedItemVM.OrderedDate = bookTableOrderedItem.OrderedDate.ToShortDateString();
             bookTableOrderedItemVM.Price = bookTableOrderedItem.MenuItem.Price;
             bookTableOrderedItemVM.RezervationId = bookTableOrderedItem.RezervationId;
             bookTableOrderedItemVM.Status = bookTableOrderedItem.Status;

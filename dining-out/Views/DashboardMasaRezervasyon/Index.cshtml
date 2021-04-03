@@ -12,7 +12,9 @@
         </div>
         <div class="col-lg-3 ">
             <h6 class="text-primary">Masa Rezervasyon Açıklaması</h6>
-            <small class="text-muted"><p>@Model.rezervationVM.Description</p></small>
+            <small class="text-muted">
+                <p>@Model.rezervationVM.Description</p>
+            </small>
         </div>
         <div class="col-lg-4 form-group">
         </div>
@@ -138,7 +140,7 @@
                                         <div class="col-md-6">
                                             @if ("CANCELLED".Equals(Model.rezervationVM.RezervationDbStatus) || "CLOSED".Equals(Model.rezervationVM.RezervationDbStatus))
                                             {
-                                                <button type="submit" name="masaRezervasyonKisiEkle" value="masaRezervasyonKisiEkle" class="btn btn-primary disabled" aria-disabled="true" disabled="true">Ekle</button>
+                                                <button type="submit" name="masaRezervasyonKisiEkle" value="masaRezervasyonKisiEkle" class="btn btn-primary disabled" aria-disabled="true" disabled >Ekle</button>
                                             }
                                             else
                                             {
@@ -269,21 +271,35 @@
                                 {
                                     <p class="card-text">
                                         <div class="form-row">
-                                            <div class="col-lg-10">
+                                            <div class="col-lg-8">
                                             </div>
-                                            <div class="col-md-2">
-                                                @if ("CANCELLED".Equals(Model.rezervationVM.RezervationDbStatus) || "CLOSED".Equals(Model.rezervationVM.RezervationDbStatus))
-                                                {
-                                                    <button type="submit" disabled="true" name="masaRezervasyonOde" value="masaRezervasyonOde" class="btn btn-primary disabled" aria-disabled="true">Öde</button>
-                                                }
-                                                else if(Model.OdenecekSiparisVarmi())
-                                                {
-                                                    <button type="submit" name="masaRezervasyonOde" value="masaRezervasyonOde" class="btn btn-primary">Öde</button>
-                                                }
-                                                else 
-                                                {
-                                                    <button type="submit" disabled="true" name="masaRezervasyonOde" value="masaRezervasyonOde" class="btn btn-primary disabled" aria-disabled="true">Öde</button>
-                                                }
+                                            <div class="col-md-4">
+                                                <div class="form-row">
+                                                    <div class="col-lg-8">
+                                                        @if ("APPROVED".Equals(Model.rezervationVM.RezervationDbStatus) && Model.rezervationVM.Attendees != null && Model.rezervationVM.Attendees.Count > 0)
+                                                        {
+                                                            <button type="submit" name="masaRezervasyonSiparisEkle" value="masaRezervasyonSiparisEkle" class="btn btn-success">Sipariş Ekle</button>
+                                                        }
+                                                        else
+                                                        {
+                                                            <button type="submit" disabled name="masaRezervasyonSiparisEkle" value="masaRezervasyonSiparisEkle" class="btn btn-success disabled" aria-disabled="true">Sipariş Ekle</button>
+                                                        }
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                        @if ("CANCELLED".Equals(Model.rezervationVM.RezervationDbStatus) || "CLOSED".Equals(Model.rezervationVM.RezervationDbStatus))
+                                                        {
+                                                            <button type="submit" disabled name="masaRezervasyonOde" value="masaRezervasyonOde" class="btn btn-primary disabled" aria-disabled="true">Öde</button>
+                                                        }
+                                                        else if (Model.OdenecekSiparisVarmi())
+                                                        {
+                                                            <button type="submit" name="masaRezervasyonOde" value="masaRezervasyonOde" class="btn btn-primary">Öde</button>
+                                                        }
+                                                        else
+                                                        {
+                                                            <button type="submit" disabled name="masaRezervasyonOde" value="masaRezervasyonOde" class="btn btn-primary disabled" aria-disabled="true">Öde</button>
+                                                        }
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-row">
@@ -295,9 +311,28 @@
                                                         @ViewBag.HataMesajiOdeme
                                                     </div>
                                                 }
+
+
                                             </div>
                                         </div>
                                     </p>
+                                }
+                                else
+                                {
+                                    <div class="form-row">
+                                        <div class="col-lg-8">
+                                        </div>
+                                        <div class="col-lg-4">
+                                            @if ("APPROVED".Equals(Model.rezervationVM.RezervationDbStatus) && Model.rezervationVM.Attendees != null && Model.rezervationVM.Attendees.Count > 0)
+                                            {
+                                                <button type="submit" name="masaRezervasyonSiparisEkle" value="masaRezervasyonSiparisEkle" class="btn btn-success">Sipariş Ekle</button>
+                                            }
+                                            else
+                                            {
+                                                <button type="submit" disabled name="masaRezervasyonSiparisEkle" value="masaRezervasyonSiparisEkle" class="btn btn-success disabled" aria-disabled="true">Sipariş Ekle</button>
+                                            }
+                                        </div>
+                                    </div>
                                 }
                             </div>
                         </div>
