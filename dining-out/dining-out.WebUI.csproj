@@ -18,6 +18,7 @@
     <Folder Include="Views\DashboardRestaurantMenuDuzenle\" />
     <Folder Include="Views\DashboardMasaRezervasyon\" />
     <Folder Include="wwwroot\autocomplete\" />
+    <Folder Include="Views\DashboardSiparisler\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dining-out.Models\dining-out.Models.csproj">

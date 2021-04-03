@@ -1,11 +1,8 @@
 ﻿<Properties StartupConfiguration="{0252D707-0A96-4566-B9A9-6E538BE5BD24}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="dining-out/Views/Shared/_LayoutDashboard.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="dining-out/Controllers/DashboardSiparislerController.cs">
     <Files>
-      <File FileName="dining-out/Controllers/DashboardMasaRezervasyonController.cs" Line="303" Column="60" />
-      <File FileName="dining-out/Views/DashboardMasaRezervasyon/SiparisAl.cshtml" Line="107" Column="66" />
-      <File FileName="dining-out/Views/DashboardMasaRezervasyon/Index.cshtml" Line="14" Column="39" />
-      <File FileName="dining-out/Views/MasaRezervasyon/Index.cshtml" Line="64" Column="22" />
-      <File FileName="dining-out/Views/Shared/_LayoutDashboard.cshtml" Line="1" Column="1" />
+      <File FileName="dining-out/Views/DashboardSiparisler/Index.cshtml" Line="21" Column="59" />
+      <File FileName="dining-out/Controllers/DashboardSiparislerController.cs" Line="16" Column="61" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,6 +10,9 @@
           <Node name="dining-out" expanded="True">
             <Node name="dining-out.Models" expanded="True" />
             <Node name="dining-out.WebUI" expanded="True">
+              <Node name="Controllers" expanded="True">
+                <Node name="DashboardSiparislerController.cs" selected="True" />
+              </Node>
               <Node name="Views" expanded="True" />
             </Node>
           </Node>
