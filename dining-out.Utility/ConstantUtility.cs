@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace dining_out.Utility
 {
     public static class ConstantUtility
@@ -80,6 +82,16 @@ namespace dining_out.Utility
             NEW,SERVICED,CANCELLED, PURCHASED
         }
 
+        public static List<string> tumSiparisDurumlar()
+        {
+            List<string> tumSiparisDurumlar = new List<string>();
+            tumSiparisDurumlar.Add(textValueOfOrderedItemStatus(OrderedItemStatus.NEW.ToString()));
+            tumSiparisDurumlar.Add(textValueOfOrderedItemStatus(OrderedItemStatus.SERVICED.ToString()));
+            tumSiparisDurumlar.Add(textValueOfOrderedItemStatus(OrderedItemStatus.CANCELLED.ToString()));
+            tumSiparisDurumlar.Add(textValueOfOrderedItemStatus(OrderedItemStatus.PURCHASED.ToString()));
+            return tumSiparisDurumlar;
+        }
+
 
         public static string textValueOfOrderedItemStatus(string orderedItemStatus)
         {
@@ -98,6 +110,27 @@ namespace dining_out.Utility
             if (OrderedItemStatus.PURCHASED.ToString().Equals(orderedItemStatus))
             {
                 return "Ödendi";
+            }
+            return "";
+        }
+
+        public static string enumValueOfOrderedItemStatus(string orderedItemStatus)
+        {
+            if ("Yeni Sipariş".Equals(orderedItemStatus))
+            {
+                return OrderedItemStatus.NEW.ToString();
+            }
+            if ("Servis Edildi".Equals(orderedItemStatus))
+            {
+                return OrderedItemStatus.SERVICED.ToString();
+            }
+            if ("İptal Edildi".Equals(orderedItemStatus))
+            {
+                return OrderedItemStatus.CANCELLED.ToString();
+            }
+            if ("Ödendi".Equals(orderedItemStatus))
+            {
+                return OrderedItemStatus.PURCHASED.ToString();
             }
             return "";
 

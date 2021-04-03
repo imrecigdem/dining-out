@@ -190,7 +190,18 @@ namespace dining_out.Utility
             bookTableOrderedItemVM.StatusText = ConstantUtility.textValueOfOrderedItemStatus(bookTableOrderedItem.Status);
             bookTableOrderedItemVM.UserName = bookTableOrderedItem.User.UserName;
             bookTableOrderedItemVM.PurchasedUserName = bookTableOrderedItem.User.UserName;
+            bookTableOrderedItemVM.RestaurantName = bookTableOrderedItem.Restaurant.SystemDefinitionName;
             return bookTableOrderedItemVM;
+        }
+
+        public static List<BookTableOrderedItemVM> convertModel(List<BookTableOrderedItem> bookTableOrderedItems)
+        {
+            List<BookTableOrderedItemVM> items = new List<BookTableOrderedItemVM>();
+            foreach(BookTableOrderedItem orderedItem in bookTableOrderedItems)
+            {
+                items.Add(convertModel(orderedItem));
+            }
+            return items;
         }
 
         public static string GetUniqueFileName(string fileName)
