@@ -5,7 +5,7 @@
       <File FileName="dining-out/Views/DashboardMasaRezervasyon/SiparisAl.cshtml" Line="107" Column="66" />
       <File FileName="dining-out/Views/DashboardMasaRezervasyon/Index.cshtml" Line="14" Column="39" />
       <File FileName="dining-out/Views/MasaRezervasyon/Index.cshtml" Line="64" Column="22" />
-      <File FileName="dining-out/Views/Shared/_LayoutDashboard.cshtml" Line="51" Column="89" />
+      <File FileName="dining-out/Views/Shared/_LayoutDashboard.cshtml" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,12 +13,7 @@
           <Node name="dining-out" expanded="True">
             <Node name="dining-out.Models" expanded="True" />
             <Node name="dining-out.WebUI" expanded="True">
-              <Node name="Views" expanded="True">
-                <Node name="MasaRezervasyon" expanded="True" />
-                <Node name="Shared" expanded="True">
-                  <Node name="_LayoutDashboard.cshtml" selected="True" />
-                </Node>
-              </Node>
+              <Node name="Views" expanded="True" />
             </Node>
           </Node>
         </State>
