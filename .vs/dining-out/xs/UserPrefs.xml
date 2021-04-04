@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{0252D707-0A96-4566-B9A9-6E538BE5BD24}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="dining-out/Views/Login/Index.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="dining-out/Startup.cs">
     <Files>
       <File FileName="dining-out/Controllers/LoginController.cs" Line="20" Column="30" />
-      <File FileName="dining-out/Views/Login/Index.cshtml" Line="8" Column="56" />
-      <File FileName="dining-out/Views/Login/GirisYap.cshtml" Line="14" Column="15" />
+      <File FileName="dining-out/Views/Login/Index.cshtml" Line="15" Column="12" />
+      <File FileName="dining-out/Views/Login/GirisYap.cshtml" Line="12" Column="27" />
+      <File FileName="dining-out/Startup.cs" Line="28" Column="93" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,15 +12,7 @@
           <Node name="dining-out" expanded="True">
             <Node name="dining-out.Models" expanded="True" />
             <Node name="dining-out.WebUI" expanded="True">
-              <Node name="Views" expanded="True">
-                <Node name="Login" expanded="True">
-                  <Node name="Index.cshtml" selected="True" />
-                </Node>
-                <Node name="Shared" expanded="True" />
-              </Node>
-              <Node name="wwwroot" expanded="True">
-                <Node name="css" expanded="True" />
-              </Node>
+              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>

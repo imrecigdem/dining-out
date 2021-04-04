@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using dining_out.Models.ViewModels;
 using dining_out.Models.DbModels;
 using dining_out.Utility;
+using Microsoft.AspNetCore.Authorization;
 
 namespace dining_out.Controllers
 {
@@ -21,6 +22,7 @@ namespace dining_out.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Index(int restaurantId)
         {
             diningoutContext _context = new diningoutContext();
@@ -31,6 +33,7 @@ namespace dining_out.Controllers
 
         [HttpPost]
         [Route("/MasaRezervasyon/RezervasyonYap/{restaurantId:int}")]
+        [Authorize]
         public IActionResult RezervasyonYap(int restaurantId, MasaRezervasyonVM masaRezervasyonVM)
         {
             diningoutContext _context = new diningoutContext();
