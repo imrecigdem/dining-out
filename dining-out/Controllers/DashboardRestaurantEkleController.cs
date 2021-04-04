@@ -46,7 +46,7 @@ namespace dining_out.Controllers
         [Authorize]
         public IActionResult Ekle(RestaurantVM restaurantVM)
         {
-            int userId = 1; // Login Kullanıcı olacak
+            int userId = Converters.currentUserId(this);
             diningoutContext dbContext = new diningoutContext();
             var logoUniqueFileName="";
             var coverUniqueFileName = "";

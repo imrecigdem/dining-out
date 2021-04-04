@@ -33,18 +33,26 @@ namespace dining_out.Controllers
         [HttpPost]
         public async Task<IActionResult> GirisYap(LoginVM loginVm)
         {
+            string ReturnUrl = HttpContext.Request.Query["ReturnUrl"];
             User loginedUser = dbContext.Users.SingleOrDefault(user => user.UserName.Equals(loginVm.Username) && user.Password.Equals(loginVm.Password));
             if (loginedUser!=null)
             {
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name,loginVm.Username)
+                    new Claim(ClaimTypes.Name,loginVm.Username),
+                    new Claim(ClaimTypes.Role,loginedUser.UserType),
+                    new Claim(ClaimTypes.NameIdentifier,loginedUser.Id.ToString())
                 };
 
                 var userIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,principal);
-                return RedirectToAction("Index","Anasayfa");
+
+                if (!String.IsNullOrEmpty(ReturnUrl) && Url.IsLocalUrl(ReturnUrl))
+                    return Redirect(ReturnUrl);
+                else
+                    return RedirectToAction("Index", "Anasayfa");
+
             }
             return View(new LoginVM());
         }

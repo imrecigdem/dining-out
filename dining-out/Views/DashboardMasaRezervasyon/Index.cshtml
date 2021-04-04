@@ -21,11 +21,11 @@
         <div class="col-lg-3 text-right">
             @if (Model.user.isRestaurant())
             {
-                if ("NEW".Equals(Model.rezervationVM.RezervationDbStatus))
+                if ("NEW".Equals(Model.rezervationVM.RezervationDbStatus) && User.IsInRole("RESTAURANT"))
                 {
                     <a asp-controller="DashboardMasaRezervasyon" asp-action="RezervasyonOnay" asp-route-masaRezervationId="@Model.rezervationVM.Id" class="btn btn-success">Onay</a>
                 }
-                else if ("APPROVED".Equals(Model.rezervationVM.RezervationDbStatus))
+                else if ("APPROVED".Equals(Model.rezervationVM.RezervationDbStatus) && User.IsInRole("RESTAURANT"))
                 {
                     <a asp-controller="DashboardMasaRezervasyon" asp-action="RezervasyonKapat" asp-route-masaRezervationId="@Model.rezervationVM.Id" class="btn btn-dark">Kapat</a>
                 }

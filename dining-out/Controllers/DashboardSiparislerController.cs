@@ -87,11 +87,25 @@ namespace dining_out.Controllers
 
         public SiparislerVM siparisler()
         {
-            int userId = 1; // Login Kullanıcı olacak
+            int userId = Converters.currentUserId(this);
             diningoutContext dbContext = new diningoutContext();
             User user = dbContext.Users.Where(user => user.Id.Equals(userId)).SingleOrDefault();
-            List<BookTableOrderedItem> bookTableOrderedItems = dbContext.BookTableOrderedItems.Where(orderedItem => orderedItem.RestaurantId.ToString().Equals(userId.ToString())).ToList();
-
+            List<BookTableOrderedItem> bookTableOrderedItems = new List<BookTableOrderedItem>() ;
+            if (user.UserType.Equals(ConstantUtility.UserType.RESTAURANT.ToString()))
+            {
+                List<Restaurant> restaurants = dbContext.Restaurants.Where(res => res.User.Id.Equals(user.Id)).ToList();
+                List<int> restaurantIds = new List<int>();
+                foreach(Restaurant restaurant in restaurants)
+                {
+                    restaurantIds.Add(restaurant.Id);
+                }
+                bookTableOrderedItems = dbContext.BookTableOrderedItems.Where(orderedItem => restaurantIds.Contains(orderedItem.RestaurantId)).ToList();
+            }
+            else
+            {
+                bookTableOrderedItems = dbContext.BookTableOrderedItems.Where(orderedItem => orderedItem.UserId.Equals(user.Id)).ToList();
+            }
+            
             List<BookTableOrderedItem> newBookTableOrderedItems = bookTableOrderedItems.Where(orderedItem => orderedItem.Status.ToString().Equals(ConstantUtility.OrderedItemStatus.NEW.ToString())).ToList();
             List<BookTableOrderedItem> serviceBookTableOrderedItems = bookTableOrderedItems.Where(orderedItem => orderedItem.Status.ToString().Equals(ConstantUtility.OrderedItemStatus.SERVICED.ToString())).ToList();
             List<BookTableOrderedItem> otherBookTableOrderedItems = bookTableOrderedItems.Where(orderedItem => orderedItem.Status.ToString().Equals(ConstantUtility.OrderedItemStatus.PURCHASED.ToString()) || orderedItem.Status.ToString().Equals(ConstantUtility.OrderedItemStatus.CANCELLED.ToString())).ToList();

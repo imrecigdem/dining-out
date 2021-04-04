@@ -9,6 +9,7 @@ using dining_out.Models.ViewModels;
 using dining_out.Models.DbModels;
 using dining_out.Utility;
 using System.IO;
+using System.Security.Claims;
 
 namespace dining_out.Utility
 {
@@ -211,6 +212,21 @@ namespace dining_out.Utility
                       + "_"
                       + Guid.NewGuid().ToString().Substring(0, 4)
                       + Path.GetExtension(fileName);
+        }
+
+        public static ClaimsPrincipal currentUser(Controller controller)
+        {
+            return controller.User;
+        }
+
+        public static List<Claim> claims(Controller controller)
+        {
+            return controller.User.Claims.ToList();
+        }
+
+        public static int currentUserId(Controller controller)
+        {
+            return Int32.Parse(controller.User.Claims.FirstOrDefault(claim => claim.Type.Equals(ClaimTypes.NameIdentifier)).Value);
         }
     }
 }

@@ -24,13 +24,29 @@ namespace dining_out.Controllers
         [Authorize]
         public IActionResult Index()
         {
-            int userId=1; // Login Kullanıcı olacak
+            int userId=Converters.currentUserId(this);
             diningoutContext dbContext = new diningoutContext();
             User user = dbContext.Users.Where(user => user.Id.Equals(userId)).Single();
             List<BookTableRezervation> bookTableRezervations = new List<BookTableRezervation>();
+            List<int> bookTableRezervationIds = new List<int>();
             if (ConstantUtility.UserType.CUSTOMER.ToString().Equals(user.UserType))
             {
                 bookTableRezervations = dbContext.BookTableRezervations.Where(book => book.RezervationUserId.Equals(user.Id)).ToList();
+                
+                foreach (BookTableRezervation bookTable in bookTableRezervations)
+                {
+                    bookTableRezervationIds.Add(bookTable.Id);
+                }
+
+                List<BookTableAttendee> bookTableAttendees = dbContext.BookTableAttendees.Where(attendee => attendee.UserId.Equals(user.Id)).ToList();
+                foreach(BookTableAttendee bookTableAttendee in bookTableAttendees)
+                {
+                    if (!bookTableRezervationIds.Contains(bookTableAttendee.BooktableRezervation.Id))
+                    {
+                        bookTableRezervations.Add(bookTableAttendee.BooktableRezervation);
+                        bookTableRezervationIds.Add(bookTableAttendee.BooktableRezervation.Id);
+                    }
+                }
             }
             else
             {

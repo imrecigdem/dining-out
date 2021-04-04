@@ -239,7 +239,7 @@ namespace dining_out.Controllers
         [Authorize]
         public IActionResult SiparisEkle(int masaRezervationId)
         {
-            int userId = 1;
+            int userId = Converters.currentUserId(this);
             List<KeyValueVM> secilenMenuItems = new List<KeyValueVM>();
             List<KeyValueVM> menuSecimiYapanlar = new List<KeyValueVM>();
             if (Request.Form.Keys.Contains("masaRezervasyonSiparisVer"))
@@ -378,7 +378,7 @@ namespace dining_out.Controllers
 
         public DashboardMasaRezervasyonVM indexSayfasiModel(int masaRezervationId)
         {
-            int userId = 1; // Login Kullanıcı olacak
+            int userId = Converters.currentUserId(this);
             diningoutContext dbContext = new diningoutContext();
             User user = dbContext.Users.Where(user => user.Id.Equals(userId)).First();
             BookTableRezervation bookTableRezervation = dbContext.BookTableRezervations.Where(bookTable => bookTable.Id.Equals(masaRezervationId)).First();
@@ -400,7 +400,8 @@ namespace dining_out.Controllers
                 if (ConstantUtility.OrderedItemStatus.PURCHASED.ToString().Equals(bookTableOrderedItemVM.Status))
                 {
                     BookTablePaymentTransaction bookTablePaymentTransaction = dbContext.BookTablePaymentTransactions.Where(payment => payment.MenuOrderedItemId.Equals(bookTableOrderedItemVM.Id)).SingleOrDefault();
-                    bookTableOrderedItemVM.PurchasedUserName=bookTablePaymentTransaction.PayerUser.UserName;
+                    if(bookTablePaymentTransaction!=null)
+                        bookTableOrderedItemVM.PurchasedUserName=bookTablePaymentTransaction.PayerUser.UserName;
                 }
             }
             

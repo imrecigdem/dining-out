@@ -24,7 +24,7 @@ namespace dining_out.Controllers
         [Authorize]
         public IActionResult Index()
         {
-            int userId = 1; // Login Kullanıcı olacak
+            int userId = Converters.currentUserId(this);
             diningoutContext dbContext = new diningoutContext();
             List<Restaurant> restaurants = dbContext.Restaurants.Where(res => res.UserId.Equals(userId)).ToList();
             List<RestaurantVM> restaurantVMs = new List<RestaurantVM>();

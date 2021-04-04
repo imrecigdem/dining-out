@@ -48,7 +48,7 @@ namespace dining_out.Controllers
             rezervation.RezervationDate = masaRezervasyonVM.Tarih.Date;
             rezervation.RezervationTime = masaRezervasyonVM.TarihSaat.TimeOfDay;
             rezervation.RezervationCreatedDatetime = DateTime.Now;
-            rezervation.RezervationUserId = 1;
+            rezervation.RezervationUserId = Converters.currentUserId(this);
             rezervation.RezervationStatus = ConstantUtility.RezervationStatus.NEW.ToString();
             _context.BookTableRezervations.Add(rezervation);
             _context.SaveChanges();
