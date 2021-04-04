@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using dining_out.Models.ViewModels;
 using dining_out.Models.DbModels;
 using dining_out.Utility;
+using Microsoft.AspNetCore.Authorization;
 
 namespace dining_out.Controllers
 {
@@ -21,6 +22,7 @@ namespace dining_out.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Index(int masaRezervationId)
         {
             DashboardMasaRezervasyonVM dashboardMasaRezervasyonVM= indexSayfasiModel(masaRezervationId);
@@ -28,6 +30,7 @@ namespace dining_out.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult RezervasyonOnay(int masaRezervationId)
         {
             diningoutContext dbContext = new diningoutContext();
@@ -40,6 +43,7 @@ namespace dining_out.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult RezervasyonKapat(int masaRezervationId)
         {
             diningoutContext dbContext = new diningoutContext();
@@ -52,6 +56,7 @@ namespace dining_out.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult RezervasyonIptal(int masaRezervationId)
         {
             diningoutContext dbContext = new diningoutContext();
@@ -64,6 +69,7 @@ namespace dining_out.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult OdemeAl(int masaRezervationId)
         {
             if (Request.Form.Keys.Contains("masaRezervasyonSiparisEkle") && "masaRezervasyonSiparisEkle".Equals(Request.Form["masaRezervasyonSiparisEkle"].ToString()))
@@ -153,6 +159,7 @@ namespace dining_out.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult OdemeYap(int masaRezervationId, OdemeAlVM odemeAlVM)
         {
             if (Request.Form.Keys.Contains("kuponUygula"))
@@ -229,6 +236,7 @@ namespace dining_out.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult SiparisEkle(int masaRezervationId)
         {
             int userId = 1;
@@ -317,6 +325,7 @@ namespace dining_out.Controllers
         }
        
         [HttpPost]
+        [Authorize]
         public IActionResult KisiEkle(int masaRezervationId)
         {
             string kullaniciIsmi = Request.Form["eklenenecekKullaniciIsmi"].ToString();

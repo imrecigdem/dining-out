@@ -7,6 +7,7 @@ using dining_out.Models.DbModels;
 using dining_out.Utility;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace dining_out.Controllers
 {
@@ -22,6 +23,7 @@ namespace dining_out.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Index()
         {
             StaticDataManagerUtility.sehirleriDoldur(this);
@@ -41,6 +43,7 @@ namespace dining_out.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Ekle(RestaurantVM restaurantVM)
         {
             int userId = 1; // Login Kullanıcı olacak

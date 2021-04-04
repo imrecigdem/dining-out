@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using dining_out.Models.ViewModels;
 using dining_out.Models.DbModels;
 using dining_out.Utility;
+using Microsoft.AspNetCore.Authorization;
 
 namespace dining_out.Controllers
 {
@@ -20,6 +21,7 @@ namespace dining_out.Controllers
             _logger = logger;
         }
 
+        [Authorize]
         public IActionResult Index()
         {
             int userId = 1; // Login Kullanıcı olacak

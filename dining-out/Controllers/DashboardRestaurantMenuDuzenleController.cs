@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace dining_out.Controllers
 {
@@ -24,6 +25,7 @@ namespace dining_out.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Index(int restaurantId)
         {
             diningoutContext _context = new diningoutContext();
@@ -66,6 +68,7 @@ namespace dining_out.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult MenuItemEkle(int restaurantId, int Id,MenuVm menuVm)
         {
             diningoutContext _context = new diningoutContext();
