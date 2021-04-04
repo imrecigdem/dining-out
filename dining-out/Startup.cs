@@ -55,6 +55,7 @@ namespace dining_out
             app.UseStatusCodePages();
 
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
@@ -62,6 +63,12 @@ namespace dining_out
                     name: "default",
                     pattern: "{controller=Anasayfa}/{action=Index}/{id?}");
             });
+
+            var cookiePolicyOptions = new CookiePolicyOptions
+            {
+                MinimumSameSitePolicy = SameSiteMode.Strict,
+            };
+            app.UseCookiePolicy(cookiePolicyOptions);
         }
     }
 }

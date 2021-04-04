@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ZqJDLzUSrcD7oPIJr6Mbsqlus/6pRw7e1fE4E/u5kJCF1jxwIaK2DRn0So12Jwat/vfQhECCkMm9inSGZpPdYw==",
+  "dgSpecHash": "eWhbAwobSFVUfEc3R0EIfWtACbIjzPWZFATg5S9156zxdoxr6HPHFjrJ+sih/cwX3JJT3w6WQS1I2guOnay0bQ==",
   "success": true,
   "projectFilePath": "/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/dining-out.WebUI.csproj",
   "expectedPackageFiles": [
@@ -17,7 +17,9 @@
     "/Users/cetin/.nuget/packages/k4os.compression.lz4.streams/1.1.11/k4os.compression.lz4.streams.1.1.11.nupkg.sha512",
     "/Users/cetin/.nuget/packages/k4os.hash.xxhash/1.0.6/k4os.hash.xxhash.1.0.6.nupkg.sha512",
     "/Users/cetin/.nuget/packages/microsoft.aspnetcore.antiforgery/2.2.0/microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
+    "/Users/cetin/.nuget/packages/microsoft.aspnetcore.authentication/2.2.0/microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "/Users/cetin/.nuget/packages/microsoft.aspnetcore.authentication.abstractions/2.2.0/microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
+    "/Users/cetin/.nuget/packages/microsoft.aspnetcore.authentication.cookies/2.2.0/microsoft.aspnetcore.authentication.cookies.2.2.0.nupkg.sha512",
     "/Users/cetin/.nuget/packages/microsoft.aspnetcore.authentication.core/2.2.0/microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
     "/Users/cetin/.nuget/packages/microsoft.aspnetcore.authorization/2.2.0/microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",
     "/Users/cetin/.nuget/packages/microsoft.aspnetcore.authorization.policy/2.2.0/microsoft.aspnetcore.authorization.policy.2.2.0.nupkg.sha512",
