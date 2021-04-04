@@ -99,3 +99,5 @@
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/obj/Debug/netcoreapp3.1/Razor/Views/DashboardMasaRezervasyon/OdemeAl.cshtml.g.cs
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/obj/Debug/netcoreapp3.1/Razor/Views/DashboardMasaRezervasyon/SiparisAl.cshtml.g.cs
 /Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/obj/Debug/netcoreapp3.1/Razor/Views/DashboardSiparisler/Index.cshtml.g.cs
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/obj/Debug/netcoreapp3.1/Razor/Views/Login/GirisYap.cshtml.g.cs
+/Users/cetin/Desktop/workspaces-wsc/dining-out/dining-out/obj/Debug/netcoreapp3.1/Razor/Views/Login/Index.cshtml.g.cs
