@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{0252D707-0A96-4566-B9A9-6E538BE5BD24}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="dining-out/Controllers/LoginController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="dining-out/Controllers/DashboardRestaurantController.cs">
     <Files>
       <File FileName="dining-out/Controllers/LoginController.cs" Line="14" Column="25" />
       <File FileName="dining-out/Views/Login/Index.cshtml" Line="15" Column="12" />
       <File FileName="dining-out/Views/Login/GirisYap.cshtml" Line="12" Column="27" />
       <File FileName="dining-out/Startup.cs" Line="51" Column="1" />
+      <File FileName="dining-out/Controllers/DashboardRestaurantController.cs" Line="24" Column="19" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,7 +14,7 @@
             <Node name="dining-out.Models" expanded="True" />
             <Node name="dining-out.WebUI" expanded="True">
               <Node name="Controllers" expanded="True">
-                <Node name="LoginController.cs" selected="True" />
+                <Node name="DashboardRestaurantController.cs" selected="True" />
               </Node>
               <Node name="Views" expanded="True" />
             </Node>
