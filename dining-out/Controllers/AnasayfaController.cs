@@ -98,11 +98,6 @@ namespace dining_out.Controllers
                 }
 
                 restaurants.Add(restaurantVM);
-                restaurants.Add(restaurantVM);
-                restaurants.Add(restaurantVM);
-                restaurants.Add(restaurantVM);
-                restaurants.Add(restaurantVM);
-                restaurants.Add(restaurantVM);
             }
 
             ViewBag.Restaurants = restaurants;
