@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\cigde\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\cigde\\.nuget\\packages"
+      "/Users/cetin/.dotnet/store/|arch|/|tfm|",
+      "/Users/cetin/.nuget/packages"
     ]
   }
 }
